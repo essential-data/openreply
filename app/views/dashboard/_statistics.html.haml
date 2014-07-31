@@ -1,0 +1,39 @@
+.row
+  / Options for switching all time / filtered
+  .large-6.columns
+    %h2
+      = t "wall.headlines.statistics"
+
+  .large-6.columns.right.time-switcher
+    %ul.button-group.right
+      %li
+        %a.button.tiny.success{type: :all}
+          = t "wall.filter.all"
+      %li
+        %a.button.tiny{type: :filtered}
+          = t "wall.filter.filtered"
+      / %li
+      /   %a.button.tinier{type: :employee}
+      /     = t(:employee)
+      / %li
+      /   %a.button.tinier{type: :customer}
+      /     = t(:customer)
+#detailed-statistics.row
+  .large-12.columns.right.data
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.count[:color], size: "", html_class: "count", style:"float:left;", text: ERB::Util.html_escape(t :count, scope: [:statistics]), white_text: ERB::Util.html_escape(@all_time_statistics.count[:value].to_s) }
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.average[:color], size: "", html_class: "average", style:"float:left;", text: ERB::Util.html_escape(t :average, scope: [:statistics]), white_text: ERB::Util.html_escape(@all_time_statistics.average[:value].to_s) }
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.median[:color], size: "", html_class: "median", style:"float:left;", text: ERB::Util.html_escape(t :median, scope: [:statistics]), white_text: ERB::Util.html_escape(@all_time_statistics.median[:value].to_s) }
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.change[:color], size: "", html_class: "change", style:"float:left;", text: ERB::Util.html_escape(t :change, scope: [:statistics]), white_text: ERB::Util.html_escape(@all_time_statistics.change[:value].to_s) }
+
+    %div{style: "clear: both;"}
+  .large-12.columns.right.data-filtered{style: "display:none"}
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.count[:color], size: "", html_class: "count", style:"float:left;", text: ERB::Util.html_escape(t :count, scope: [:statistics]), white_text: "" }
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.average[:color], size: "", html_class: "average", style:"float:left;", text: ERB::Util.html_escape(t :average, scope: [:statistics]), white_text: "" }
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.median[:color], size: "", html_class: "median", style:"float:left;", text: ERB::Util.html_escape(t :median, scope: [:statistics]),    white_text: ""}
+    = render partial: 'shared/circle', locals: {color: @all_time_statistics.change[:color], size: "", html_class: "change", style:"float:left;", text: ERB::Util.html_escape(t :change, scope: [:statistics]),    white_text: ""}
+
+    %div{style: "clear: both;"}
+.right
+  .foot-note
+    \ *
+    = t "wall.statistics_note"

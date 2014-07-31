@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title><%= content_for?(:title) ? yield(:title) : Rails.application.class.parent_name %></title>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<!-- CONTENT AREA -->
+<div class="full-width content-area">
+  <div class="row">
+    <div class="large-12 columns">
+          <%= yield %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "foundation" %>
+
+</body>
+</html>

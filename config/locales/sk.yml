@@ -1,0 +1,128 @@
+# encoding: UTF-8
+sk:
+  change_last_month: "Zmena za posledný mesiac"
+  name: "Meno"
+  rating_text: "Hodnotenie"
+  client: "Klient"
+  employee: "Zamestnanec"
+  logedin: "Prihlásený ako "
+  logout: "Odhlásený"
+  week: "Týždeň"
+  month: "Mesiac"
+  year: "Rok"
+  custom: "Vlastné"
+  calendar: "Kalendár"
+  created_at: "Pridané"
+  all_employee: "Všetci zamestnanci"
+  all_customers: "Všetci zákazníci"
+  customer: "Zákazník"
+  all_time_period: "Celé obdobie"
+  ip: "Ip adresa klienta"
+  time_line: "Časová os"
+  all: "Všetko"
+  specified_period: "Vybraté obdobie"
+  change_specified_period: "Zmena za vybraté obdobie"
+  not_rated: "Nehodnotené"
+  rated: "Hodnotené"
+  evaluate_agent: "Hodnotenie pre"
+  footer: "© 2014 essential data"
+  ticket_number: "Číslo ticketu"
+  text: "Text hodnotenia"
+  statistics_intro: "Štatistiky pre obdobie %{from} - %{to} zákazníka %{customer} a zamestnanca %{employee}"
+  period: "Perióda"
+  thanks: "Ďakujeme"
+  warning: "Upozornenie"
+
+  filter:
+    all: "Všetci"
+
+  wall:
+    statistics_intro: "Štatistika pre %{period}, %{employee} a %{customer} ."
+
+    custom_period: "obdobie %{from} - %{to}"
+    all_period: 'celé obdobie'
+
+    custom_customer: "zákazníka %{customer}"
+    all_customers: 'všetkých zákazníkov'
+
+    custom_employee: "zamestnanca %{employee_name}"
+    all_employees: 'všetkých zamestnancov'
+    headlines:
+      rating_using: 'Využitie hodnotiaceho systému'
+      rating_histogram: 'Rozloženie hodnotení'
+      rating_timeline: 'Časový priebeh hodnotení'
+      list: 'Zoznam hodnotení za obdobie'
+      statistics: 'Ukazovatele hodnotení'
+    filter:
+      all: 'Všetky'
+      filtered: 'Filtrované'
+    statistics_note: 'oproti minulému obdobiu'
+
+  menu:
+    # charts: "Grafy"
+    employee: "Zamestnanci"
+    customer: "Zákazníci"
+    # ratio: "Využitie"
+    # success_statistics: "Štatistika využívania hodnotení"
+    # release_notes: "Zmeny v aktuálnej verzii"
+    settings: 'Nastavenia'
+    logedin_as: 'Prihlásený ako'
+    logout: 'Odhlásiť'
+    wall: 'Nástenka'
+
+  rating:
+    invalid: "Neplatná URL!"
+    rated: "Už ste hodnotili!"
+    new: "Nové hodnotenie"
+    value: "Hodnotenie"
+    text: "Text Vášho hodnotenia (voliteľný)"
+    save: "Odošli hodnotenie"
+    thanks_message: "Vaše hodnotenie bolo odoslané"
+    error: "Chyba"
+    error_message: "Pri spracovaní hodnotenia došlo k chybe, skúste opakovať akciu neskôr."
+    list: "Zoznam hodnotení"
+    no_star: "Neoznačili ste žiadnu hviezdičku. Naozaj chcete zákazníka hodnotiť 0 hviezdičkami?"
+
+  error:
+    page_not_exist: "Neplatná URL!"
+    page_not_exist_desc: "Hodnotenie odpovedí je možné na tickety zadané po 17.02.2014, za pochopenie ďakujeme!"
+
+  statistics:
+    median: "Medián"
+    average: "Priemer"
+    change: "Zmena"
+    count: "Počet"
+
+  tables:
+    person:
+      median: "Medián"
+      average: "Priemer"
+      change: "Zmena *"
+      count: "Počet"
+      name: Name
+
+    ratings:
+      rating: 'Hodnotenie'
+      employee: 'Zamestnanec'
+      ip: IP
+      ticket_number: 'Číslo ticketu'
+      created_at: 'Pridané'
+      rating_text: 'Text hodnotenia'
+      feedback: 'Spätná väzba'
+
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Zobrazujem %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> z celkovo <b>%{total}</b>"
+      one_page:
+        display_entries:
+          few: "Zobrazujem <b>%{count}</b> %{entry_name}"
+          one: "Zobrazujem <b>%{count}</b> %{entry_name}"
+          other: "Zobrazujem <b>%{count}</b> %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; Prvá"
+      last: "Posledná &raquo;"
+      next: "Ďalej &rsaquo;"
+      previous: "&lsaquo; Späť"
+      truncate: "&hellip;"

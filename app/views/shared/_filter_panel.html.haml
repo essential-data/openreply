@@ -1,0 +1,53 @@
+/ <div class="small-3 columns">
+/   <label for="right-label" class="right inline">Label</label>
+/ </div>
+/ <div class="small-9 columns">
+/   <input type="text" id="right-label" placeholder="Inline Text Input">
+/ </div>
+.panel.filter
+  .row
+    .large-6.columns
+      .row
+        - if defined? employee_filter | !employee_filter.nil?
+          .large-3.columns
+            %label.right.inline{:for => "rating_employee"}
+              = (t :employee)
+          .large-3.columns
+            = select(:rating, :employee, @filtered_ratings.filter.customer_related_employees.unshift([(t "filter.all"),"all"]), selected: @filtered_ratings.filter.employee_id, id: "employee-select")
+
+        - if defined? customer_filter | !customer_filter.nil?
+          .large-3.columns
+            %label.right.inline{:for => "rating_customers"}
+              = (t :customer)
+          .large-3.columns
+            = select(:rating, :customer, @filtered_ratings.filter.employee_related_customers.unshift([(t "filter.all"),"all"]), selected: @filtered_ratings.filter.customer_id, id: "customer-select")
+    .large-6.columns
+      .row
+        .large-3.columns
+          %label.right.inline{:for => "interval-filter"}
+            = (t :period)
+        .large-9.columns
+          %ul.button-group{id: "interval-filter"}
+            %li
+              %a.interval.button.tiny.interval.success{:'data-interval' => 'all'}
+                = t(:all)
+            %li
+              %a.interval.button.tiny.interval{:'data-interval' => 'week'}
+                = t(:week)
+            %li
+              %a.interval.button.tiny.interval{:'data-interval' => 'month'}
+                = t(:month)
+            %li
+              %a.interval.button.tiny.interval{:'data-interval' => 'year'}
+                = t(:year)
+            - if defined? custom_button | !custom_button.nil?
+              %li
+                %a.interval.button.tiny.interval{:'data-interval' => 'custom' }
+                  = t(:custom)
+
+    - if @filtered_ratings.filter.interval
+      :javascript
+        $('a.button.interval').removeClass('success')
+        $('a.button.interval[data-interval="#{@filtered_ratings.filter.interval}"]').addClass('success');
+
+    = render partial: 'shared/datepicker'

@@ -1,0 +1,29 @@
+.title
+  %h1
+    = t :employee, scope: :menu
+%table{width: "100%"}
+  %thead
+    %th
+      =t "tables.person.name"
+    %th
+      =t "tables.person.average"
+    %th
+      =t "tables.person.median"
+    %th
+      =t "tables.person.change"
+    %th
+      =t "tables.person.count"
+
+  %tbody
+    - @employees.each do |e|
+      %tr
+        %td
+          = link_to e.name, dashboard_wall_path + "?employee_id=#{e.person.id}"
+        %td
+          = "%0.2f" %  e.average[:value]
+        %td
+          = "%0.2f" %  e.median[:value]
+        %td
+          = e.change[:value]
+        %td
+          = e.count[:value]

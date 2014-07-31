@@ -1,0 +1,58 @@
+.rating-form
+  #top-panel
+    #logo
+      =image_tag Settings.from_logo, width: "180"
+    #language-bar
+      %ul
+        %li{:class => (:selected if I18n.locale == :sk)}
+          = link_to "SK", url_for(params.merge lang: 'sk')
+        %li{:class => (:selected if I18n.locale == :en)}
+          = link_to "EN", url_for(params.merge lang: 'en')
+  %div{style: "clear:both;"}
+
+  %hr
+
+  #main-row
+    #agent-name
+      %h2#evaluate-agent
+        = t( :evaluate_agent)+":"
+        %br
+        #evaluate-agent-name
+          = @rating.employee_first_name +"\u00a0"+ @rating.employee_last_name
+    .form
+      = form_for :rating, url: ratings_path do |form|
+        %span.rating
+
+          %input.rating-input#rating-input-5{type: "radio", name:"rating-input-1", onclick: "toggleCheckbox(this)"}
+          %label.rating-star{:for => "rating-input-5"}
+
+          %input.rating-input#rating-input-4{type: "radio", name:"rating-input-1", onclick: "toggleCheckbox(this)"}
+          %label.rating-star{:for => "rating-input-4"}
+
+          %input.rating-input#rating-input-3{type: "radio", name:"rating-input-1", onclick: "toggleCheckbox(this)"}
+          %label.rating-star{:for => "rating-input-3"}
+
+          %input.rating-input#rating-input-2{type: "radio", name:"rating-input-1", onclick: "toggleCheckbox(this)"}
+          %label.rating-star{:for => "rating-input-2"}
+
+          %input.rating-input#rating-input-1{type: "radio", name:"rating-input-1", onclick: "toggleCheckbox(this)"}
+          %label.rating-star{:for => "rating-input-1"}
+
+        .textarea
+          = form.text_area :text, :placeholder => (t :text, scope: :rating), rows: 12
+          = form.hidden_field :value, value: 0;
+          = form.hidden_field :customer, :value => @rating.customer_name
+          = form.hidden_field :ticket_id, :value => @rating.ticket_id
+          = form.hidden_field :employee, :value =>  @rating.employee_name
+          = hidden_field_tag :authenticity_token, form_authenticity_token
+
+        = form.submit (t :save, scope: :rating), :id => "submit-button"
+  %hr
+  #footer
+    = t :footer
+
+:javascript
+  function toggleCheckbox(element) {
+  	var value = element.id.substring(13);
+  	document.getElementById('rating_value').value=value;
+    }

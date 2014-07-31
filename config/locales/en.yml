@@ -1,0 +1,126 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  logedin: "Logged in as "
+  logout: "Logout"
+  name: "Name"
+  rating_text: "Rating"
+  client: "Client"
+  change_last_month: "Last month change"
+  count: "Count"
+  employee: "Employee"
+  week: "week"
+  month: "month"
+  year: "year"
+  custom: "custom"
+  calendar: "calendar"
+  created_at: "created at"
+  customer: "Customer"
+  all_time_period: "All time period"
+  ip: "Ip"
+  time_line: "Time line"
+  all: "all"
+  specified_period: "Specified period"
+  change_specified_period: "Change for specified period"
+  evaluate_agent: "Evaluate agent"
+  not_rated: "Not rated"
+  rated: "Rated"
+  footer: "© 2014 essential data"
+  calendar: "Calendar"
+  thanks: "Thanks"
+  warning: "Warning"
+
+  filter:
+    all: "All"
+    all_customers: "All"
+
+  wall:
+    statistics_intro: "Statistics for %{period}, %{employee} and %{customer}"
+    custom_period: "%{from} - %{to}"
+    all_period: 'all time'
+
+    custom_customer: "customer %{customer}"
+    all_customers: 'all customers'
+
+    custom_employee: "employee %{employee_name}"
+    all_employees: "all employees"
+
+    headlines:
+      rating_using: 'Usage'
+      rating_histogram: 'Histogram'
+      rating_timeline: 'Timeline'
+      list: 'Feedback for chosen period'
+      statistics: 'Detailed statistics'
+
+    filter:
+      all: 'all'
+      filtered: 'filtered'
+
+    statistics_note: 'Compared to previous period'
+
+  menu:
+    settings: 'Settings'
+    logedin_as: 'Logged in'
+    logout: 'Logout'
+    wall: 'Wall'
+    employee: "Employees"
+    customer: "Customers"
+
+  tables:
+    person:
+      median: "Median"
+      average: "Average"
+      change: "Change of average *"
+      count: "Count"
+      name: 'Name'
+
+    ratings:
+      rating: 'Rating'
+      employee: 'Employee'
+      ip: 'IP'
+      ticket_number: 'Ticket number'
+      created_at: 'Created'
+      feedback: 'Feedback'
+
+  rating:
+    invalid: "Requested URL is invalid!"
+    rated: "Already rated!"
+    new: "New rating"
+    value: "Rating value"
+    text: "Rating text (optional)"
+    save: "Save rating"
+    thanks_message: "Your rating was accepted"
+    error: "Error"
+    error_message: "Error occured while processing your rating, try again later."
+    list: "List of ratings"
+    no_star: "You have selected no star. Do you really want to rate him with 0 stars?"
+
+  error:
+    page_not_exist: "Requested URL is invalid!"
+    page_not_exist_desc: "Rating of our answers is available only for tickets created after 17.02.2014!"
+
+  statistics:
+    median: "Median"
+    average: "Average"
+    change: "Change of average *"
+    count: "Count"

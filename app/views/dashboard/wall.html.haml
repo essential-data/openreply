@@ -1,0 +1,36 @@
+= javascript_include_tag "highcharts", "chartkick"
+
+= render 'shared/filter_panel', customer_filter: true, employee_filter: true, custom_button: true
+
+/ Main heading
+.row.first
+  .large-12.columns
+    %h1.wall-heading
+
+.row.second
+  / Rating statistics in circles
+  - if Otrs.using_otrs?
+    .large-7.columns.right.statistics
+      = render "statistics"
+    / Rating using chart
+    .large-5.columns
+      %h2
+        = t "wall.headlines.rating_using"
+      #rating-bar-chart
+  - else
+    .large-8.columns.statistics
+      = render "statistics"
+.row.third
+  / Histogram rating chart
+  .large-5.columns
+    %h2
+      = t "wall.headlines.rating_histogram"
+    #rating-histogram-chart
+  / Timeline chart
+  .large-7.columns
+    %h2
+      = t "wall.headlines.rating_timeline"
+    #rating-timeline-chart
+.row.forth
+  / Table with ratings
+  .large-12.columns#ratings-list

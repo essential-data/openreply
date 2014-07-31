@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title><%= content_for?(:title) ? yield(:title) : Rails.application.class.parent_name %></title>
+  <%= stylesheet_link_tag "ie" %>
+<!--  <%= stylesheet_link_tag "application" %> -->
+<!--   <%= stylesheet_link_tag "foundation3/foundation" %>
+  <%= stylesheet_link_tag "foundation3/app" %> -->
+  <%# stylesheet_link_tag "https://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic" %>
+  <%= javascript_include_tag "https://ie7-js.googlecode.com/svn/trunk/lib/IE9.js" %>
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+
+<section role="main">
+  <%= yield %>
+</section>
+
+</body>
+<!--   <%= javascript_include_tag "foundation3/jquery" %>
+  <%= javascript_include_tag "foundation3/app" %>
+  <%= javascript_include_tag "foundation3/foundation.min" %>
+  <%= javascript_include_tag "foundation3/app" %> -->
+</html>

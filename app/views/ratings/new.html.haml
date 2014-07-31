@@ -1,0 +1,50 @@
+.row.left.rating-form
+  .small-5.columns
+    .row#top-panel
+      .small-9.columns#logo
+        =image_tag Settings.from_logo, width: "180"
+      .small-3.columns
+        %ul.inline-list#language-bar
+          - I18n.locale
+          %li{:class => (:selected if I18n.locale == :sk)}
+            = link_to "SK", url_for(params.merge lang: 'sk')
+          %li{:class => (:selected if I18n.locale == :en)}
+            = link_to "EN", url_for(params.merge lang: 'en')
+    %hr
+    .row#main-row
+      .small-12.columns
+        .row
+          .small-12.columns
+            #agent-name
+              %h2#evaluate-agent
+                = t(:evaluate_agent)
+                %br
+                #evaluate-agent-name
+                  = @rating.employee_name
+        = form_for :rating, url: ratings_path, :remote => true do |form|
+          .row#stars-row
+            .small-12.columns
+              #stars
+          .row#rating-text-row
+            .small-12.columns
+              = form.text_area :text_value, :placeholder => (t :text, scope: :rating), rows: 9
+              = form.hidden_field :value, value: 0;
+              = form.hidden_field :employee_first_name, :value => @rating.employee_first_name
+              = form.hidden_field :employee_last_name, :value => @rating.employee_last_name
+              = form.hidden_field :customer, :value => @rating.customer_name
+              = form.hidden_field :ticket_id, :value => @rating.ticket_id
+              = form.hidden_field :hash, :value => params['hash']
+          .row
+            .small-12.columns
+              = form.submit (t :save, scope: :rating), :class => 'button small', id: "submit-button"
+    %hr
+    .row
+      .small-12.columns#footer
+        = t :footer
+
+:javascript
+  function show() {
+    $('##{@state}').foundation('reveal', 'open');
+  }
+
+  window.onload = show;

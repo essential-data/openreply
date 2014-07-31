@@ -1,0 +1,21 @@
+.large-offset-4.small-offset-1
+  .row#main-login
+    / .small-4.columns
+    .small-centered#body
+      .row
+        .text-center#logo
+          = image_tag(Settings.logo, align: "middle")
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        .row#form
+          = f.label :username, 'Username'
+          = f.email_field :email, :autofocus => true , autocomplete: 'off'
+          = f.label :password, 'Password'
+          = f.password_field :password, autocomplete: 'off'
+          = f.check_box :remember_me
+          = f.label :remember_me
+        .row
+          #form-button
+            .text-center
+              = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+                = f.submit "LOGIN",:class => 'button small', id: "submit-button"
+  = render "devise/shared/links"
