@@ -1,0 +1,6 @@
+New rating created  <%= @rating.created_at.strftime("%_H:%m %d.%h.%Y") %>
+=========================
+
+Employee <%= @rating.employee_name %> was rated by <%= @rating.customer_name %> and got <%= @rating.int_value %> stars.
+
+Customer also wrote: <%= @rating.text_value %>

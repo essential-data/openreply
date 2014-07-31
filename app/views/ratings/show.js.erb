@@ -1,0 +1,8 @@
+var modal = '<div id="modal_text_12" class="reveal-modal tiny" data-reveal> '+
+ ' <p><%= @rating.text_value %></p> '+
+'  <a href="#" class="button tiny" onclick="$(\'#modal_text_12\').foundation(\'reveal\', \'close\');">OK</a>'+
+
+'</div>';
+
+$("#modal_text").html(modal);
+$('#modal_text_12').foundation('reveal', 'open');

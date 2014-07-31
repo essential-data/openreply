@@ -1,0 +1,14 @@
+<div class="<%= " circle outer #{color} #{size} #{html_class}" %> " style=" <%= style %> ">
+  <div class="circle middle">
+    <div class="circle inner">
+      <% if text.to_s != "" %>
+          <div class="circle normal">
+            <%= text %>
+          </div>
+      <% end %>
+      <div class="circle white">
+        <%= white_text %>
+      </div>
+    </div>
+  </div>
+</div>

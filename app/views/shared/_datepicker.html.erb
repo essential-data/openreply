@@ -1,0 +1,23 @@
+<div id="datepickerModal" class="reveal-modal tiny" data-reveal>
+  <h2><%= t(:calendar) %></h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t :start_date %>&nbsp;
+        <a href="#" class="button tinier" id="dp4" data-date-format="dd/mm/yyyy"><%= t :change %></a>
+      </th>
+      <th><%= t :end_date %>&nbsp;
+        <a href="#" class="button tinier" id="dp5" data-date-format="dd/mm/yyyy"><%= t :change %></a>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td id="startDate"></td>
+      <td id="endDate"></td>
+    </tr>
+    </tbody>
+  </table>
+  <a class="close-reveal-modal">&#215;</a>
+  <a href="#" class="button tinier" onclick="$('#datepickerModal').foundation('reveal', 'close');">OK</a>
+</div>

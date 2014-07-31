@@ -1,0 +1,2 @@
+.release-notes
+  = (Settings.release_message.gsub( ":", "<ul>").+"</ul>").gsub( /^-(.+)([\n]|$)/, '<li>\1</li>').html_safe

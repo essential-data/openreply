@@ -1,0 +1,50 @@
+-#this is because render partial circle works only if pagnated method is before render partial .. dunno why, follow http://stackoverflow.com/questions/24784364/awkward-missing-partial-in-ruby for more info
+- pagianted_list = (paginate @rating_list.data, remote: true)
+%h2
+  = t "wall.headlines.list"
+#table-data
+  %table{width: "100%"}
+    %thead
+      %th
+        = t "tables.ratings.rating"
+      %th
+        = t "tables.ratings.employee"
+      %th
+        = t "tables.ratings.ip"
+      %th
+        = t "tables.ratings.ticket_number"
+      %th
+        %a.created-at-sort{val: (params[:order] if params) || "ASC"}
+          = t "tables.ratings.created_at"
+          = params[:order]=="DESC" ? "↑" : "↓"
+      %th
+        = t "tables.ratings.feedback"
+    %tbody
+      - @rating_list.data.each do |r|
+        %tr
+          %td{width: "6%"}
+            -#the awkward barely not working render
+            = render partial: 'shared/circle', locals: {color: Openreply::Color.color(r.int_value), size: "small", html_class: "",style:"", text: '', white_text: r.int_value }
+
+          %td{width: "14%"}
+            = link_to r.employee_name, dashboard_wall_path + "?employee_id=#{r.employee_id}"
+          %td{width: "25%"}
+            = link_to r.customer_name, dashboard_wall_path + "?customer_id=#{r.customer_id}"
+            / %br
+            %span.ip
+              = "(#{r.client_ip})"
+          %td{width: "20"}
+            - if Otrs.using_otrs?
+              = link_to r.ticket_id, "#{Settings.otrs_api.redirect_url}#{r.ticket_id}", target: "_blank"
+            - else
+              = r.ticket_id
+          %td{width: "20%"}
+            = r.created_at.to_s :long
+          %td#rating_text{width: "15%"}
+            %span.has-tip.tip-down{"data-tooltip" => true, title: r.text_value}
+              = r.text_value_short if r.text_value
+  .row
+    .small-7.columns.small-centered
+      .text-center
+        = pagianted_list #read first line comment, the same as first line
+  #modal_text

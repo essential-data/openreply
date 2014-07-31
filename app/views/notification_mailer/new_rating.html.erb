@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  <style>
+      h1 {
+          margin-top: 10px;
+          margin-left: 10px;
+          font-family: Avenir, Arial, sans-serif;
+          font-size: 1.5rem;
+          color: #797f81;
+          font-family: Avenir, Arial, sans-serif;
+          font-size: 1.2rem;
+          font-weight: bold;
+          line-height: 1.5;
+      }
+
+      p {
+          font-size: 0.8rem;
+          margin-left: 5px;
+      }
+
+  </style>
+
+</head>
+<body>
+<h1>New rating created <%= @rating.created_at.strftime("%_H:%m %d. %h %Y") %></h1>
+<%= @rating.detailed_text.html_safe %>
+</body>
+</html>
