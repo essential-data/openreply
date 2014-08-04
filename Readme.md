@@ -110,7 +110,11 @@ In OTRS you can setup a link for each email footer. After clicking this link you
 #### Email footers
 The URL in the email footer has following format:
 
-> http://your-server.com/ratings/new?firstname=[employee_firstname]&lastname=[employee_surname]&ticketID=[ticket_id]&customer=[customer
+> http://your-server.com/ratings/new?firstname=[employee_firstname]&lastname=[employee_surname]&ticketID=[ticket_id]&customer=[customer]
+
+After clicking the link, you see the following screen:
+
+![](https://raw.githubusercontent.com/essential-data/openreply/master/app/assets/images/screenshot_rating.png)
 
 Link consists of following params:
 
