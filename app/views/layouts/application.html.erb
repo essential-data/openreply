@@ -9,7 +9,7 @@
   <%= javascript_include_tag "/javascripts/translations.js" %>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
-  <%= analytics_init %>
+
 
   <%= csrf_meta_tags %>
 
@@ -20,6 +20,7 @@
 </head>
 
 <body>
+<%= render :partial => 'shared/ga' if  Rails.env.production? %>
 
 <!-- CONTENT AREA -->
 <div class="full-width content-area">
@@ -28,37 +29,37 @@
       <div class="row">
         <div class="right large-6 columns">
           <!-- START navigation -->
-            <nav class="top-bar " data-topbar>
-              <ul class="title-area">
-                <!-- Title Area -->
-                <li class="name">
-                </li>
-                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                <li class="toggle-topbar menu-icon">
-                  <a href="">Menu</a>
-                </li>
-              </ul>
-              <section class="top-bar-section" style="left: 0%;">
-                  <!-- Right Nav Section -->
-                  <ul class="right">
-                    <li class="divider"></li>
-                    <!-- <li class="settings-button">
+          <nav class="top-bar " data-topbar>
+            <ul class="title-area">
+              <!-- Title Area -->
+              <li class="name">
+              </li>
+              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+              <li class="toggle-topbar menu-icon">
+                <a href="">Menu</a>
+              </li>
+            </ul>
+            <section class="top-bar-section" style="left: 0%;">
+              <!-- Right Nav Section -->
+              <ul class="right">
+                <li class="divider"></li>
+                <!-- <li class="settings-button">
                       <%# link_to image_tag( "settings-logo.png", width: "15", :class => "settings-logo" ).html_safe + t("menu.settings"), "#" %>
                     </li> -->
-                    <li>
-                      <%= link_to t("menu.logout"), destroy_user_session_path, method: :delete%>
-                    </li>
-                  </ul>
-                  <!-- Left Nav Section -->
-                  <ul class="left">
+                <li>
+                  <%= link_to t("menu.logout"), destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+              <!-- Left Nav Section -->
+              <ul class="left">
 
-                        <li class="not-click">
-                          <div class="like-link"><%= t("menu.logedin_as") %> <strong><%= current_user.email %></strong></div>
-                          <!-- <a><%# t("menu.logedin_as") %> <strong><%= current_user.email %></strong></a> -->
-                        </li>
-                  </ul>
-              </section>
-            </nav>
+                <li class="not-click">
+                  <div class="like-link"><%= t("menu.logedin_as") %> <strong><%= current_user.email %></strong></div>
+                  <!-- <a><%# t("menu.logedin_as") %> <strong><%= current_user.email %></strong></a> -->
+                </li>
+              </ul>
+            </section>
+          </nav>
           <!-- END navigation -->
         </div>
       </div>
@@ -73,18 +74,19 @@
             <%= image_tag Settings.logo, width: "100%", style: "max-width: 300px;" %>
           </div>
         </a>
+
         <div class="right large-6 columns">
           <% if user_signed_in? %>
 
-            <dl class="right sub-nav">
-              <!-- <dd class="active"><%# link_to t(:wall), "#" %></dd> -->
-              <%# image_tag( "wall-icon.png", width: "15", :class => "settings-logo" ).html_safe%>
-                <dd><%= link_to t("menu.wall"),dashboard_wall_path, class: ("active" if action_name == "wall"),  id: "wall" %></dd>
+              <dl class="right sub-nav">
+                <!-- <dd class="active"><%# link_to t(:wall), "#" %></dd> -->
+                <%# image_tag( "wall-icon.png", width: "15", :class => "settings-logo" ).html_safe%>
+                <dd><%= link_to t("menu.wall"), dashboard_wall_path, class: ("active" if action_name == "wall"), id: "wall" %></dd>
                 <dd><%= link_to t("menu.employee"), dashboard_employees_list_path, id: "employees", class: ("active" if action_name == "employees_list") %></dd>
                 <dd><%= link_to t("menu.customer"), dashboard_customers_list_path, id: "customers", class: ("active" if action_name == "customers_list") %></dd>
-            </dl>
+              </dl>
           <% end %>
-          </div>
+        </div>
       </div>
       <div class="row">
         <div class="large-12 columns">

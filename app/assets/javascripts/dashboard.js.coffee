@@ -68,6 +68,7 @@ update_all_charts = ->
     $('#table-data').html('')
     $('#table-data').addClass('loading')
     update_rating_list filter
+    table_sort_bind()
 
 # get all current filter parameters (customer_id, employee_id, interval, from, to, order of feedback list) from page
 filter_setup_variables = ->
@@ -80,14 +81,16 @@ filter_setup_variables = ->
   {from: time_filter["from"], to: time_filter["to"], time_interval: interval, employee_id: employee_id, customer_id: customer_id, order: ratings_order}
 
 # feedback list sorting change
-$(document).on 'click', "th a.created-at-sort", ->
-  if $('th a.createcalculate_date_from_intervald-at-sort').attr("val") == "DESC"
-    $('th a.created-at-sort').attr("val", "ASC")
-  else
-    $('th a.created-at-sort').attr("val", "DESC")
+table_sort_bind = ->
+  $('th a.created-at-sort').bind('click', ->
+    if $(this).attr("val") == "DESC"
+      $(this).attr("val", "ASC")
+    else
+      $(this).attr("val", "DESC")
 
-  filter = filter_setup_variables()
-  update_rating_list filter
+    filter = filter_setup_variables()
+    update_rating_list filter
+  )
 
 # updates heading for current customer and current employee using localization
 heading_update = () ->
@@ -118,7 +121,9 @@ update_rating_list = (filter) ->
     dataType: "script",
     url: "/ratings",
     data: filter,
-  })
+  }).done ->
+    table_sort_bind()
+
 
 # updates specific chart
 update_chart = (type, filter) ->

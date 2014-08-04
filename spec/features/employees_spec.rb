@@ -15,7 +15,7 @@ feature "Employee statistics", :vcr do
 
   scenario "click employee to show details", js: true do
     click_link "Employees"
-    click_link "Fero"
+    click_link "Fero K"
     expect(find(".wall-heading")).to have_content /Statistics.+Fero/
   end
 

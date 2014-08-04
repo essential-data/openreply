@@ -108,7 +108,6 @@ GEM
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    google-analytics-rails (0.0.6)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -321,7 +320,6 @@ DEPENDENCIES
   flay
   flog
   foundation-rails (= 5.0.2.0)
-  google-analytics-rails
   haml-rails
   http_accept_language
   i18n-js
