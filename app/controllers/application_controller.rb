@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action  :set_p3p
   before_action :set_locale
   layout :layout_by_resource
-  rescue_from Otrs::ServiceError, with: :render_409
+  rescue_from Otrs::ServiceError, with: :render_500
 
 
   def render_404
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def render_409
+  def render_500
     respond_to do |format|
       format.html { render :file => "#{Rails.root}/public/500", :layout => false, :status => :not_found }
       format.any { head :no_otrs_connection }
