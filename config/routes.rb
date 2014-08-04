@@ -9,6 +9,8 @@ Openreply::Application.routes.draw do
   get 'ratings/new', to: 'ratings#new_from_personal_details'
   get 'ratings/new/:ticket_id/:hash/:lang', to: 'ratings#new_validated_by_hash'
   get 'ratings/new/:ticket_id/:hash', to: 'ratings#new_validated_by_hash'
+  get 'ratings/related_employees', to: 'ratings#related_employees'
+  get 'ratings/related_customers', to: 'ratings#related_customers'
 
   get "graphs/bar"
   get "graphs/histogram"

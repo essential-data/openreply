@@ -1,9 +1,7 @@
 class GraphsController < ApplicationController
 
   before_action do
-    new_cookies, customer, employee, @interval, from, to = Dashboard::Wall.process_parameters(params, cookies)
-    # this sets the cookies (it's not a local variable)
-    new_cookies.each_pair { |k, v| cookies[k] = v }
+    customer, employee, @interval, from, to = Dashboard::Wall.process_parameters params
     @filtered_ratings = Dashboard::FilteredRatings.new customer, employee, @interval, from, to
   end
 
@@ -37,12 +35,10 @@ class GraphsController < ApplicationController
   def detailed_statistics
     @detailed_statistics = Statistics::PersonStatistics.new @filtered_ratings.ratings, @filtered_ratings.ratings_older
     @should_switch = (@interval != 'all')
-
     respond_to do |format|
       format.html { render_404 }
       format.js { render partial: "dashboard/charts/statistics" }
     end
   end
-
 
 end

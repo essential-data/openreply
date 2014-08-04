@@ -11,9 +11,8 @@ class DashboardController < ApplicationController
 
   # statistics screen
   def wall
-    new_cookies, customer, employee, interval, from, to = Dashboard::Wall.process_parameters(params, {})
-    # this sets the cookies (it's not a local variable)
-    new_cookies.each_pair { |k, v| cookies[k] = v }
+    customer, employee, interval, from, to = Dashboard::Wall.process_parameters(params)
+
     @filtered_ratings = Dashboard::FilteredRatings.new customer, employee, interval, from, to
     @all_time_statistics = Statistics::PersonStatistics.new Rating.all
   end

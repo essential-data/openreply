@@ -5,14 +5,13 @@ class RatingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new_from_personal_details, :new_validated_by_hash, :create]
 
   def index
-    new_cookies, customer, employee, interval, from, to = Dashboard::Wall.process_parameters(params, cookies)
-    # this sets the cookies (it's not a local variable)
-    new_cookies.each_pair { |k, v| cookies[k] = v }
+    customer, employee, interval, from, to = Dashboard::Wall.process_parameters params
+
     @filtered_ratings = Dashboard::FilteredRatings.new customer, employee, interval, from, to
     @rating_list = Statistics::ListFeedback.new @filtered_ratings.ratings, params["order"], params["page"]
 
     respond_to do |format|
-      format.html {render_404}
+      format.html { render_404 }
       format.js { render partial: "list" }
     end
 
@@ -75,4 +74,27 @@ class RatingsController < ApplicationController
       render js: "alert(\"#{t :error, scope: :rating}!\");"
     end
   end
+
+  def related_customers
+    customer, employee, interval, from, to = Dashboard::Wall.process_parameters params
+    @filter = Dashboard::Filter.new(customer, employee, interval, from, to)
+
+    respond_to do |format|
+      format.html { render_404 }
+      format.js { render partial: 'related_customers' }
+    end
+
+  end
+
+  def related_employees
+    customer, employee, interval, from, to = Dashboard::Wall.process_parameters params
+    @filter = Dashboard::Filter.new(customer, employee, interval, from, to)
+
+    respond_to do |format|
+      format.html { render_404 }
+      format.js { render partial: 'related_employees'}
+    end
+
+  end
+
 end

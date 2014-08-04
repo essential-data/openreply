@@ -32,6 +32,7 @@ sk:
   period: "Perióda"
   thanks: "Ďakujeme"
   warning: "Upozornenie"
+  loading: "Načítavám"
 
   filter:
     all: "Všetci"

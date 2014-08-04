@@ -106,17 +106,16 @@ feature "Wall statistics", :vcr do
     # Checks list/table of ratings
     expect(page).to have_selector "#ratings-list tr:nth-child(5)"
     expect(page).to have_content "Mikuláš"
-    expect(page).to have_content "Nic moc"
+    expect(page).to have_content "Super fant..."
   end
 
   scenario "displays next for rating details", js: true do
     # Checks pagination
 
-
-    expect(page).to have_content 'Nic moc'
+    expect(page).to have_content 'Super fant...'
     click_link "Next ›"
     wait_for_ajax
-    expect(page).to_not have_content 'Nic moc'
+    expect(page).to_not have_content 'Super fant...'
   end
 
 

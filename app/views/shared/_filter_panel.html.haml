@@ -13,14 +13,14 @@
             %label.right.inline{:for => "rating_employee"}
               = (t :employee)
           .large-3.columns
-            = select(:rating, :employee, @filtered_ratings.filter.customer_related_employees.unshift([(t "filter.all"),"all"]), selected: @filtered_ratings.filter.employee_id, id: "employee-select")
+            = render partial: 'ratings/related_employees', locals: {filter: @filtered_ratings.filter}
 
         - if defined? customer_filter | !customer_filter.nil?
           .large-3.columns
             %label.right.inline{:for => "rating_customers"}
               = (t :customer)
           .large-3.columns
-            = select(:rating, :customer, @filtered_ratings.filter.employee_related_customers.unshift([(t "filter.all"),"all"]), selected: @filtered_ratings.filter.customer_id, id: "customer-select")
+            = render partial: 'ratings/related_customers', locals: {filter: @filtered_ratings.filter}
     .large-6.columns
       .row
         .large-3.columns

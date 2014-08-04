@@ -8,18 +8,26 @@ $(document).ready ->
   customer_change_update_bind()
   time_interval_change_bind()
   detailed_statistic_switcher()
+  table_sort_bind()
 
   update_all_charts()
 
 # bind employees' select list change
 employee_change_update_bind = ->
   $('#rating_employee').change ->
+    filter = filter_setup_variables()
     update_all_charts()
+    update_chart("/ratings/related_customers", filter)
+    make_loading_select('#rating_customer')
+
 
 # bind customer' select list change
 customer_change_update_bind = ->
   $('#rating_customer').change ->
+    filter = filter_setup_variables()
     update_all_charts()
+    update_chart("/ratings/related_employees", filter)
+    make_loading_select('#rating_employee')
 
 # bind interval [all|week|month|year|custom] change
 time_interval_change_bind = ->
@@ -49,40 +57,50 @@ update_all_charts = ->
   filter = filter_setup_variables()
   if $("h1.wall-heading").length
     heading_update()
+
   if $('#rating-bar-chart').length
-    $('#rating-bar-chart').html('')
-    $('#rating-bar-chart').addClass('loading')
-    update_chart("bar", filter)
+    make_loading('#rating-bar-chart')
+    update_chart("/graphs/bar", filter)
+
   if $('#rating-histogram-chart').length
-    $('#rating-histogram-chart').html('')
-    $('#rating-histogram-chart').addClass('loading')
-    update_chart("histogram", filter)
+    make_loading('#rating-histogram-chart')
+    update_chart("/graphs/histogram", filter)
+
   if $('#detailed-statistics').length
     switch_statistics_button $('.time-switcher a.button[type=all]')
-    update_chart("detailed_statistics", filter)
+    update_chart("/graphs/detailed_statistics", filter)
+
   if $('#rating-timeline-chart').length
-    $('#rating-timeline-chart').html('')
-    $('#rating-timeline-chart').addClass('loading')
-    update_chart("time_line", filter)
+    make_loading('#rating-timeline-chart')
+    update_chart("/graphs/time_line", filter)
+
   if $("#ratings-list").length
-    $('#table-data').html('')
-    $('#table-data').addClass('loading')
-    update_rating_list filter
-    table_sort_bind()
+    make_loading('#table-data')
+    update_chart("/ratings", filter)
+
+make_loading = (element) ->
+  $(element).html('')
+  $(element).addClass('loading')
+
+make_loading_select = (element) ->
+  option = $('<option></option>').attr("value", "option value").text(I18n.t("loading"));
+  $(element).empty().append(option)
 
 # get all current filter parameters (customer_id, employee_id, interval, from, to, order of feedback list) from page
 filter_setup_variables = ->
   interval = $('a.button.interval.success').data('interval')
   time_filter = calculate_date_from_interval(interval)
-  employee_id = if ($('#rating_employee').val() == "all") then "all" else $('#rating_employee').val()
-  customer_id = if ($('#rating_customer').val() == "all") then "all" else $('#rating_customer').val()
   ratings_order = $('th a.created-at-sort').attr("val")
+  hash = {from: time_filter["from"], to: time_filter["to"], time_interval: interval, order: ratings_order}
 
-  {from: time_filter["from"], to: time_filter["to"], time_interval: interval, employee_id: employee_id, customer_id: customer_id, order: ratings_order}
+  employee_id = if ($('#rating_employee').val() != "all") then hash['employee_id'] = $('#rating_employee').val()
+  customer_id = if ($('#rating_customer').val() != "all") then hash['customer_id'] = $('#rating_customer').val()
+
+  hash
 
 # feedback list sorting change
 table_sort_bind = ->
-  $('th a.created-at-sort').bind('click', ->
+  $(document).on('click', 'th a.created-at-sort', ->
     if $(this).attr("val") == "DESC"
       $(this).attr("val", "ASC")
     else
@@ -113,25 +131,13 @@ select_init = () ->
   $("#rating_employee").val(urlParam('employee_id')) if urlParam('employee_id')
   $("#rating_customer").val(urlParam('customer_id')) if urlParam('customer_id')
 
-# updates rating list
-update_rating_list = (filter) ->
-  $.ajax({
-    cache: false
-    type: "GET",
-    dataType: "script",
-    url: "/ratings",
-    data: filter,
-  }).done ->
-    table_sort_bind()
-
-
 # updates specific chart
-update_chart = (type, filter) ->
+update_chart = (url, filter) ->
   $.ajax({
     cache: false
     type: "GET",
     dataType: "script",
-    url: "/graphs/" + type,
+    url: url,
     data: filter,
   })
 

@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   database: openreply_development
-  pool: 5
+  pool: 7
   username: <%= ENV['OPENREPLY_DB_DEVELOPMENT_USER'] %>
   host: <%= ENV['OPENREPLY_DB_DEVELOPMENT_HOST'] %>
   password: <%= ENV['OPENREPLY_DB_DEVELOPMENT_PASS'] %>
@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   database: openreply_test
-  pool: 5
+  pool: 7
   username: <%= ENV['OPENREPLY_DB_DEVELOPMENT_USER'] %>
   host: <%= ENV['OPENREPLY_DB_DEVELOPMENT_HOST'] %>
   password: <%= ENV['OPENREPLY_DB_DEVELOPMENT_PASS'] %>
@@ -35,7 +35,7 @@ production:
   adapter: mysql2
   encoding: utf8
   database: openreply_production
-  pool: 5
+  pool: 7
   username: <%= ENV['OPENREPLY_DB_PRODUCTION_USER'] %>
   host: <%= ENV['OPENREPLY_DB_PRODUCTION_HOST'] %>
   password: <%= ENV['OPENREPLY_DB_PRODUCTION_PASS'] %>
@@ -45,7 +45,7 @@ staging:
   adapter: mysql2
   encoding: utf8
   database: openreply_staging
-  pool: 5
+  pool: 7
   username: <%= ENV['OPENREPLY_DB_STAGING_USER'] %>
   host: <%= ENV['OPENREPLY_DB_STAGING_HOST'] %>
   password: <%= ENV['OPENREPLY_DB_STAGING_PASS'] %>

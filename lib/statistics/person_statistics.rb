@@ -62,10 +62,7 @@ module Statistics
       last_period_avg = ratings_older_period.average(:int_value).to_f
       this_period_avg = ratings_this_period.average(:int_value).to_f
 
-      # TODO fix when this period is 0 //why??
-      (this_period_avg/last_period_avg-1) * 100 if last_period_avg != 0 && this_period_avg != 0
-
-
+      (this_period_avg/last_period_avg-1) * 100 if last_period_avg != 0
     end
 
     def rating_of_periods ratings, ratings_older_period

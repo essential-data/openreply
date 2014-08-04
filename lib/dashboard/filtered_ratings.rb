@@ -12,7 +12,7 @@ module Dashboard
       @ratings = @ratings.filter_by_employee(employee) if employee && employee
       @ratings = @ratings.filter_by_customer(customer) if customer && customer
 
-      if from && !from.blank? && to && !to.blank?
+      if from && to
         from = Date.parse from.to_s
         to = Date.parse to.to_s
       else

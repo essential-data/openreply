@@ -49,6 +49,7 @@ en:
   calendar: "Calendar"
   thanks: "Thanks"
   warning: "Warning"
+  loading: "Loading"
 
   filter:
     all: "All"
