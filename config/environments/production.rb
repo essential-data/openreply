@@ -95,4 +95,8 @@ Openreply::Application.configure do
   # config.to_prepare { Devise::SessionsController.force_ssl }
   # config.to_prepare { Devise::RegistrationsController.force_ssl }
   # config.to_prepare { Devise::PasswordsController.force_ssl }
+
+  # Google analytics tracker code
+  GA.tracker = ENV['GOOGLE_ANALYTICS_TRACKER_CODE']
+
 end

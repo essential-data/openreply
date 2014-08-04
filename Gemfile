@@ -43,6 +43,8 @@ gem "chartkick", "~> 1.2.1"
 # Client for rest web services, connect to otrs api to validate data
 gem "rest-client", "~> 1.6.7"
 
+gem 'google-analytics-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
