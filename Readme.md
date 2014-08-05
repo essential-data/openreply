@@ -36,6 +36,10 @@ So, to summarize - the application is divided in two separate modules:
   - histogram
   - timeline chart
 
+### Others
+  - New rating email notifications
+  - Google analytics in production environment
+
 ## Requirements
 
 The application is a standard Ruby on Rails app, using the 4.1.4 version of the framework. Apart from that, there's the following:
@@ -146,7 +150,11 @@ After sending a **POST** request, the app runs the validations once again and th
 - global switches and UI settings are in settings.yml
 - Settings for Capistrano are in .env
 - Settings for OTRS are in .env
-- Usage of (optional) OTRS API is set in config/settings.yml under `otrs_api.enabled` 
+- Usage of (optional) OTRS API is set in config/settings.yml under `otrs_api.enabled`
+- Settings for SMTP mail server are in .env
+- Usage of (optional) email notifications for new ratings is set in config/settings.yml under `new_rating_notifications_emails`
+- Settings for Google analytics are in .env
+- Usage of (optional) google analytics is set in config/settings.yml under `google_analytics` 
 
 ## Contributing
 Feel free to contribute if you find it useful. 

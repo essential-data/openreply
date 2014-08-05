@@ -5,9 +5,10 @@ color: "#F14E3C"
 release_message: Openreply v0.2, nové:\n- pri filtrovaní zobrazenie info boxu o práci\n- filtrovanie ratio podla času a klienta\n- štatistika pomer hodnotení k celkovým možným (ratio)\n- získavanie ticket number\n- vypnutý autocomplete pri prihlasovaní\n- pri chybnom linku sa zobrazí chybová stránka namiesto modálneho okna\n- nový dizajn formulár pre IE8\n- zmenený admin user\n- ...\n
 redirect_to_webpage: <%= ENV['OPENREPLY_REDIRECT_TO_WEBPAGE'] %>
 new_rating_notifications_emails: false
+google_analytics: false
 
 otrs_api:
-  enabled: true
+  enabled: false
   url: <%= ENV['OPENREPLY_OTRS_URL'] %>
   redirect_url: <%= ENV['OPENREPLY_OTRS_REDIRECT_URL'] %>
   unknown_customers: ["-", ""]

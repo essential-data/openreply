@@ -20,7 +20,8 @@
 </head>
 
 <body>
-<%= render :partial => 'shared/ga' if  Rails.env.production? %>
+
+<%= render :partial => 'shared/ga' if  Rails.env.production? && Settings.google_analytics %>
 
 <!-- CONTENT AREA -->
 <div class="full-width content-area">
