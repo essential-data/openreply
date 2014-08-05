@@ -18,5 +18,13 @@ describe Otrs::Article, :vcr do
         expect(count).to eq ENV['OPENREPLY_OTRS_SPECS_ARTICLES_COUNT'].to_i
       end
     end
+
+    it 'should return 0 because of wrong customer' do
+      if (Otrs.using_otrs?)
+        count = Otrs::Article.max_ratings_count('2014-02-17', '2014-07-20', 'asdas')
+        expect(count).to eq 0
+      end
+    end
+
   end
 end
