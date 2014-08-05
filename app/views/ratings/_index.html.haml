@@ -14,9 +14,9 @@
       %th
         = t "tables.ratings.ticket_number"
       %th
-        %a.created-at-sort{val: (params[:order] if params) || "ASC"}
+        %a.created-at-sort{val: (params[:order] if params) || "DESC"}
           = t "tables.ratings.created_at"
-          = params[:order]=="DESC" ? "↑" : "↓"
+          = params[:order]=="ASC" ? "↓" : "↑"
       %th
         = t "tables.ratings.feedback"
     %tbody

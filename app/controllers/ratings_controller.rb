@@ -45,6 +45,7 @@ class RatingsController < ApplicationController
       render_404
       return
     end
+
     @rating = Rating.new_from_customer_and_ticket_and_employee(params['customer'] || Settings.otrs_api.unknown_customer_name, params['ticketID'], params["firstname"], params["lastname"])
 
     if !@rating

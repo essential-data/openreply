@@ -133,7 +133,7 @@ describe RatingsController, :vcr, :type => :controller do
         expect(response.cookies["Rated #{ENV['OPENREPLY_OTRS_SPECS_FIRSTNAME']} #{ENV['OPENREPLY_OTRS_SPECS_LASTNAME']} by ED on 44312"]).to eq "rated"
       end
 
-      it 'sends mail' do
+      it 'sends mail', skip: !Settings.new_rating_notifications_emails do
         Settings.new_rating_notifications_emails = true
         expect { post :create, params }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
@@ -151,4 +151,52 @@ describe RatingsController, :vcr, :type => :controller do
       end
     end
   end
+
+  describe 'GET #index' do
+    login_admin
+
+    it "successfully responds to request" do
+      xhr :get, :index, time_interval: "all", employee: "Francis Bosco", _: 1404219728226, format: "js"
+      expect(response).to be_success
+      expect(response).to render_template 'ratings/_list'
+    end
+
+    it "assigns parameters" do
+      xhr :get, :index, time_interval: "all", employee: "Francis Bosco", _: 1404219728226, format: "js"
+      expect(assigns(:rating_list)).to be_an_instance_of Statistics::ListFeedback
+    end
+  end
+
+  describe 'GET #related_customers' do
+    login_admin
+
+    it "successfully responds to request" do
+      xhr :get, :related_customers, time_interval: "all", employee: "Francis Bosco", _: 1404219728226, format: "js"
+      expect(response).to be_success
+      expect(response).to render_template 'ratings/_related_customers'
+    end
+
+    it "assigns parameters" do
+      xhr :get, :related_customers, time_interval: "all", employee: "Francis Bosco", _: 1404219728226, format: "js"
+      expect(assigns(:filter)).to be_an_instance_of Dashboard::Filter
+    end
+
+  end
+
+  describe 'GET #related_employees' do
+    login_admin
+
+    it "successfully responds to request" do
+      xhr :get, :related_employees, time_interval: "all", employee: "Francis Bosco", _: 1404219728226, format: "js"
+      expect(response).to be_success
+      expect(response).to render_template 'ratings/_related_employees'
+    end
+
+    it "assigns parameters" do
+      xhr :get, :related_employees, time_interval: "all", employee: "Francis Bosco", _: 1404219728226, format: "js"
+      expect(assigns(:filter)).to be_an_instance_of Dashboard::Filter
+    end
+  end
+
+
 end

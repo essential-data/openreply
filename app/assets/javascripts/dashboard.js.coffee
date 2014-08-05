@@ -15,18 +15,16 @@ $(document).ready ->
 # bind employees' select list change
 employee_change_update_bind = ->
   $('#rating_employee').change ->
-    filter = filter_setup_variables()
     update_all_charts()
-    update_chart("/ratings/related_customers", filter)
+    update_chart("/ratings/related_customers")
     make_loading_select('#rating_customer')
 
 
 # bind customer' select list change
 customer_change_update_bind = ->
   $('#rating_customer').change ->
-    filter = filter_setup_variables()
     update_all_charts()
-    update_chart("/ratings/related_employees", filter)
+    update_chart("/ratings/related_employees")
     make_loading_select('#rating_employee')
 
 # bind interval [all|week|month|year|custom] change
@@ -60,23 +58,23 @@ update_all_charts = ->
 
   if $('#rating-bar-chart').length
     make_loading('#rating-bar-chart')
-    update_chart("/graphs/bar", filter)
+    update_chart("/graphs/bar")
 
   if $('#rating-histogram-chart').length
     make_loading('#rating-histogram-chart')
-    update_chart("/graphs/histogram", filter)
+    update_chart("/graphs/histogram")
 
   if $('#detailed-statistics').length
     switch_statistics_button $('.time-switcher a.button[type=all]')
-    update_chart("/graphs/detailed_statistics", filter)
+    update_chart("/graphs/detailed_statistics")
 
   if $('#rating-timeline-chart').length
     make_loading('#rating-timeline-chart')
-    update_chart("/graphs/time_line", filter)
+    update_chart("/graphs/time_line")
 
   if $("#ratings-list").length
     make_loading('#table-data')
-    update_chart("/ratings", filter)
+    update_chart("/ratings")
 
 make_loading = (element) ->
   $(element).html('')
@@ -106,8 +104,7 @@ table_sort_bind = ->
     else
       $(this).attr("val", "DESC")
 
-    filter = filter_setup_variables()
-    update_rating_list filter
+    update_chart('/ratings')
   )
 
 # updates heading for current customer and current employee using localization
@@ -132,7 +129,8 @@ select_init = () ->
   $("#rating_customer").val(urlParam('customer_id')) if urlParam('customer_id')
 
 # updates specific chart
-update_chart = (url, filter) ->
+update_chart = (url) ->
+  filter = filter_setup_variables()
   $.ajax({
     cache: false
     type: "GET",
