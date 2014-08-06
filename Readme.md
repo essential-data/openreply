@@ -1,13 +1,13 @@
 # Welcome to OpenReply
 
 OpenReply is a simple CRM application, focusing on getting feedback about your employees from your customers. It also allows you to meaningfully review and evaluate the feedback given in a simple administrative interface.
-Out-of-the box, it integrates nicely with [OTRS (Opensource Ticket Request System)](http://www.otrs.com/), one of the most widely used ticketing systems. 
+Out-of-the-box, it integrates nicely with [OTRS (Opensource Ticket Request System)](http://www.otrs.com/), one of the most widely used ticketing systems. 
 
 ![](https://raw.githubusercontent.com/essential-data/openreply/master/app/assets/images/screenshot.png)
 
 ## How does it work
 
-The application uses an URL inserted in the footer of each email, sent out from your ticketing system to your customers. This allows the customer to rate the employee answering to his request by simply clicking the URL in the footer. The application then offers a simple rating form facing the customer, allowing him to rate the communication with the employee. You can review the ratings collectively in a clean, user-friendly administrative interface offering various statistics and performance indicators.
+The application uses an URL inserted in the footer of each email, sent out from your ticketing system to your customers. This allows the customer to rate the employee answering to his ticket by simply clicking the URL in the footer. The application then offers a simple rating form facing the customer, allowing him to rate the communication with the employee. You can review the ratings collectively in a clean, user-friendly administrative interface offering various statistics and performance indicators.
 
 So, to summarize - the application is divided in two separate modules:
 
