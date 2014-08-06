@@ -114,39 +114,27 @@ In OTRS you can setup a link for each email footer. After clicking this link you
 #### Email footers
 The URL in the email footer has following format:
 
-> http://your-server.com/ratings/new?firstname=[employee_firstname]&lastname=[employee_surname]&ticketID=[ticket_id]&customer=[customer]
+> http://your-server.com/ratings/new?firstname=[employee_firstname]&lastname=[employee_surname]&ticketID=[ticket_id]&customer=[customer_name]
 
-After clicking the link, you see the following screen:
+After clicking the link, the following screen appears:
 
 ![](https://raw.githubusercontent.com/essential-data/openreply/master/app/assets/images/screenshot_rating.png)
 
-Link consists of following params:
+To disallow multiple ratings in a short succession, the rating is stored to user's cookie, so he / she is not allowed to rate the same customer / issue pair for the following hour.
 
- - firstname - first name of rated employee
- - lastname - surname of rated employee
- - ticketID - rated issue ID (OTRS ticket ID)
- - customer - customer name (optional)
-
-To disallow rating twice, actual rating is stored to user's cookie, so he is not allowed to rate same customer and same issue next hour.
+After the rating, the user is redirected to the company website (set in .env file in OPENREPLY_REDIRECT_TO_WEBPAGE variable).
 
 #### OTRS API
-It is an open source project that is used to get information directly from your OTRS database. It can be easily installed following [these instructions]() on all versions of OTRS and will add functionality to OpenReply.
+
+is a simple REST API built over the OTRS-backing database. It can be easily installed following [these instructions]() over the OTRS 3.1.+ database and allows additional functionality in OpenReply.
 
 You can activate OTRS API in *config/settings.yml* and set OTRS API setting in *.env* (have a look at .env.example) 
 
+Among other functionality, the API is first and foremost used to validate the URL parameters in the validation link. Basically, we ask the API if the **ticket** has been created by the **customer** and if it was at any time assigned to the **employee**).
 
-It is used for example for validation to make sure that url is valid.
-
- - using OTRS API we ask otrs if the **ticket** was created by the **customer** and if it was at any time assigned to the **employee**
-
-If validations are ok, a form with these fields is generated:
-
-- overall satisfaction expressed by points 0-5 (stars)
-- text description of rating (optional)
-
-After sending a **POST** request, the app runs the validations once again and the user is redirected to the company website (set in .env file in OPENREPLY_REDIRECT_TO_WEBPAGE variable).
 
 ## App specific configurations
+
 - global switches and UI settings are in settings.yml
 - Settings for Capistrano are in .env
 - Settings for OTRS are in .env
