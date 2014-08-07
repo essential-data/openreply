@@ -82,7 +82,7 @@ sk:
     error: "Chyba"
     error_message: "Pri spracovaní hodnotenia došlo k chybe, skúste opakovať akciu neskôr."
     list: "Zoznam hodnotení"
-    no_star: "Neoznačili ste žiadnu hviezdičku. Naozaj chcete zákazníka hodnotiť 0 hviezdičkami?"
+    no_star: "Neoznačili ste žiadnu hviezdičku. Súhlasíte s týmto hodnotením?"
 
   error:
     page_not_exist: "Neplatná URL!"

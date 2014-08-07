@@ -2,6 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http:#coffeescript.org/
 
+root = exports ? this
+
+
 $(document).ready ->
   select_init()
   employee_change_update_bind()
@@ -41,9 +44,6 @@ time_interval_change_bind = ->
 # show and handle custom interval date-picker view
 date_interval_picker = ->
   $('#datepickerModal').foundation('reveal', 'open')
-  $(".reveal-modal").off "close"
-  $(".reveal-modal").on "close", ->
-    update_all_charts()
 
 # handle [all|filtered] switch of detailed statistics
 detailed_statistic_switcher = ->
@@ -51,8 +51,7 @@ detailed_statistic_switcher = ->
     switch_statistics_button this
 
 # initialize all charts updating
-update_all_charts = ->
-  filter = filter_setup_variables()
+this.update_all_charts = ->
   if $("h1.wall-heading").length
     heading_update()
 

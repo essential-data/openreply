@@ -37,3 +37,9 @@ root.calculate_date_from_interval = (interval) ->
 root.toFullDate = (date) ->
   date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
+
+root.valid_date_time = ->
+  if $('#datepickerModal #startDate').text() != "" && $('#datepickerModal #endDate').text() != ""
+    true
+  else
+    false

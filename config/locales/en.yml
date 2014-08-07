@@ -42,7 +42,7 @@ en:
   all: "all"
   specified_period: "Specified period"
   change_specified_period: "Change for specified period"
-  evaluate_agent: "Evaluate agent"
+  evaluate_agent: "Evaluate employee"
   not_rated: "Not rated"
   rated: "Rated"
   footer: "© 2014 essential data"
@@ -105,7 +105,7 @@ en:
 
   rating:
     invalid: "Requested URL is invalid!"
-    rated: "Already rated!"
+    rated: "The rating has been already submited!"
     new: "New rating"
     value: "Rating value"
     text: "Rating text (optional)"
@@ -114,7 +114,7 @@ en:
     error: "Error"
     error_message: "Error occured while processing your rating, try again later."
     list: "List of ratings"
-    no_star: "You have selected no star. Do you really want to rate him with 0 stars?"
+    no_star: "You have not selected any star. Do you really want to rate this employee with no stars?"
 
   error:
     page_not_exist: "Requested URL is invalid!"

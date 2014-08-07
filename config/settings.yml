@@ -8,7 +8,7 @@ new_rating_notifications_emails: false
 google_analytics: false
 
 otrs_api:
-  enabled: false
+  enabled: true
   url: <%= ENV['OPENREPLY_OTRS_URL'] %>
   redirect_url: <%= ENV['OPENREPLY_OTRS_REDIRECT_URL'] %>
   unknown_customers: ["-", ""]

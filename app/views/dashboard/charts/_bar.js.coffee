@@ -10,7 +10,7 @@ if $('#rating-bar-chart').length
     },
     tooltip: {
       formatter: ->
-        s = '<b>'+"Rated"+'</b>'
+        s = '<b>'+this.series.name+'</b>'
         s += '<br>'+this.y
         return s;
     },
