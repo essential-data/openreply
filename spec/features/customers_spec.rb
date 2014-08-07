@@ -29,4 +29,11 @@ feature "Customers statistics", :vcr do
     click_link "Starec"
     expect(find(".wall-heading")).to have_content /Statistics.+Starec/
   end
+
+  scenario "sort table", js: true do
+    click_link "Customers"
+    expect {first("#customers_table th").click()}.to change {first("#customers_table td").text()}
+  end
+
 end
+

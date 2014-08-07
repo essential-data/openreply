@@ -28,9 +28,12 @@ feature "Employee statistics", :vcr do
     expect(page).to have_content "Fero"
     expect(page).to have_content "Jano"
     expect(page).to have_content "Jožo"
-
   end
 
+  scenario "sort table", js: true do
+    click_link "Employees"
+    expect {first("#employees_table th").click()}.to change {first("#employees_table td").text()}
+  end
 
 
 end
