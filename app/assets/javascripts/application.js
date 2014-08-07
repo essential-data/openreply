@@ -16,6 +16,7 @@
 //= require foundation-datepicker
 //= require jquery.raty
 //= require i18n
+//= require jquery.tablesorter
 //= require_tree .
 
 $(function () {
