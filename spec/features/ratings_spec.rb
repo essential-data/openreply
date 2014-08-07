@@ -83,7 +83,7 @@ feature "Rating form", :vcr do
     visit uri
     expect(page).not_to have_content "Error occured while processing your rating, try again later."
 
-    expect(page).to have_content "Evaluate agent"
+    expect(page).to have_content "Evaluate employee"
     expect(page).to have_button "Save rating"
 
     click_link 'SK'
@@ -98,7 +98,7 @@ feature "Rating form", :vcr do
     find('#rated_thanks').native.send_keys(:escape)
 
     click_link 'EN'
-    expect(page).to have_content "Evaluate agent"
+    expect(page).to have_content "Evaluate employee"
     expect(page).to have_button "Save rating"
   end
 
@@ -111,12 +111,12 @@ feature "Rating form", :vcr do
 
     find("img[alt='4']").click
     click_button "Save rating"
-    expect(page).to have_content 'Thanks'
+    expect(page).to have_content I18n.t("thanks")
     expect(Rating.count - old_count).to be 1
 
     find('#rated_thanks').native.send_keys(:escape)
     click_button "Save rating"
-    expect(page).to have_content 'rated'
+    expect(page).to have_content I18n.t("rating.rated")
     expect(Rating.count - old_count).to be 1
   end
 end

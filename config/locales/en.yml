@@ -105,7 +105,7 @@ en:
 
   rating:
     invalid: "Requested URL is invalid!"
-    rated: "The rating has been already submited!"
+    rated: "The rating has been already submitted!"
     new: "New rating"
     value: "Rating value"
     text: "Rating text (optional)"

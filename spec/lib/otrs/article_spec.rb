@@ -21,10 +21,10 @@ describe Otrs::Article, :vcr do
 
     it 'should return 0 because of wrong customer' do
       if (Otrs.using_otrs?)
-        count = Otrs::Article.max_ratings_count('2014-02-17', '2014-07-20', 'asdas')
+        count = Otrs::Article.max_ratings_count('2014-02-17', '2014-07-20', Customer.find_or_create_by_name('asdas'))
         expect(count).to eq 0
       end
     end
-
   end
+
 end
