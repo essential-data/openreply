@@ -26,13 +26,13 @@ set :normalize_asset_timestamps, false
 namespace :deploy do
   desc "Tell Puma to do a hot restart."
   task :restart do
-    run "/bin/kill `cat /var/run/thin/thin.pid`"
+    run "/bin/kill `cat #{fetch(:deploy_to)}/shared/pids/thin.pid`"
     deploy.start
   end
 
   desc "Tell Puma to start."
   task :start do
-    run "cd #{fetch(:deploy_to)}/current && bundle exec thin -p 8000 -P /var/run/thin/thin.pid -l log/thin.log -e production -d start"
+    run "cd #{fetch(:deploy_to)}/current && bundle exec thin -p 8000 -P #{fetch(:deploy_to)}/current/tmp/pids/thin.pid -l #{fetch(:deploy_to)}/current/log/thin.log -e production -d start"
   end
 
 end

@@ -35,7 +35,7 @@
               = "(#{r.client_ip})"
           %td{width: "20"}
             - if Otrs.using_otrs?
-              = link_to r.ticket_id, "#{Settings.otrs_api.redirect_url}#{r.ticket_id}", target: "_blank"
+              = link_to r.ticket_number, "#{Settings.otrs_api.redirect_url}#{r.ticket_id}", target: "_blank"
             - else
               = r.ticket_id
           %td{width: "20%"}
