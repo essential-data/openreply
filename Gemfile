@@ -99,5 +99,5 @@ gem 'http_accept_language'
 # gem for browser detection
 gem "browser"
 
-# puma web server
-gem "puma"
+# thin web server
+gem "thin"
