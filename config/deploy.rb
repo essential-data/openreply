@@ -26,6 +26,13 @@ set :normalize_asset_timestamps, false
 namespace :deploy do
   desc "Tell Puma to do a hot restart."
   task :restart do
-    run "/bin/kill -SIGUSR2 `cat /var/run/puma/puma.pid`"
+    run "/bin/kill `cat /var/run/puma/puma.pid`"
+    deploy.start
   end
+
+  desc "Tell Puma to start."
+  task :start do
+    run "bundle exec puma --daemon --environment production --port 8000 --pidfile /var/run/puma/puma.pid"
+  end
+
 end

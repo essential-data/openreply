@@ -66,7 +66,7 @@ Openreply::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # action_mailer settings
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = Settings.mail_delivery_method
   config.action_mailer.smtp_settings = {
       address: ENV["SMTP_ADDRESS"],
       port: ENV["SMTP_PORT"],

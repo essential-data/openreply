@@ -6,6 +6,7 @@ release_message: Openreply v0.2, nové:\n- pri filtrovaní zobrazenie info boxu 
 redirect_to_webpage: <%= ENV['OPENREPLY_REDIRECT_TO_WEBPAGE'] %>
 new_rating_notifications_emails: true
 google_analytics: true
+mail_delivery_method: :sendmail #[:smtp|nil]
 
 otrs_api:
   enabled: true

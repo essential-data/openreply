@@ -64,7 +64,7 @@ class RatingsController < ApplicationController
     elsif cookies[@rating.cookie_key] == "rated"
       render js: "$('#rated_error').foundation('reveal', 'open');"
     elsif @rating.save
-      NotificationMailer.new_rating(@rating).deliver if Settings.new_rating_notifications_emails
+      NotificationMailer.new_rating(@rating).deliver if Settings.mail_delivery_method
       cookies[@rating.cookie_key] = {value: "rated", expires: 1.hour.from_now}
       if browser.modern?
         render js: "$('#rated_thanks').foundation('reveal', 'open');"
