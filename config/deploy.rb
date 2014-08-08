@@ -32,7 +32,7 @@ namespace :deploy do
 
   desc "Tell Puma to start."
   task :start do
-    run "bundle exec puma --daemon --environment production --port 8000 --pidfile /var/run/puma/puma.pid"
+    run "cd #{fetch(:deploy_to)}/current && bundle exec puma --daemon --environment production --port 8000 --pidfile /var/run/puma/puma.pid"
   end
 
 end
