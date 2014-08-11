@@ -98,7 +98,7 @@ sk:
     person:
       median: "Medián"
       average: "Priemer"
-      change: "Zmena *"
+      change: "Zmena priemeru"
       count: "Počet"
       name: Name
 

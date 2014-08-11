@@ -4,15 +4,15 @@
 %table{width: "100%", id: "customers_table", class:"tablesorter" }
   %thead
     %th
-      =t "tables.name"
+      =t "tables.person.name"
     %th
-      =t "tables.average"
+      =t "tables.person.average"
     %th
-      =t "tables.median"
+      =t "tables.person.median"
     %th
-      =t "tables.change"
+      =t "tables.person.change"
     %th
-      =t "tables.count"
+      =t "tables.person.count"
 
   %tbody
     - @customers.each do |e|

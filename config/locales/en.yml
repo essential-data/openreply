@@ -91,7 +91,7 @@ en:
     person:
       median: "Median"
       average: "Average"
-      change: "Change of average *"
+      change: "Change of average"
       count: "Count"
       name: 'Name'
 
