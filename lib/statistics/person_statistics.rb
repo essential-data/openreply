@@ -96,7 +96,6 @@ module Statistics
 
     def self.of_many_persons persons
       persons.to_a.map! { |e| Statistics::PersonStatistics.new e.ratings, nil, e }
-      persons.sort { |c1, c2| c2.average[:value]<=>c1.average[:value] }
     end
   end
 end
