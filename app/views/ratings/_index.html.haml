@@ -19,6 +19,11 @@
           = params[:order]=="ASC" ? "↓" : "↑"
       %th
         = t "tables.ratings.feedback"
+      %th
+        = t "tables.ratings.reviewed"
+      %th
+        = t "tables.ratings.ignored"
+
     %tbody
       - @rating_list.data.each do |r|
         %tr
@@ -34,7 +39,7 @@
             %span.ip
               = "(#{r.client_ip})"
           %td{width: "20"}
-            - if Otrs.using_otrs?
+            - if Otrs.using_otrs? && r.ticket_number
               = link_to r.ticket_number, "#{Settings.otrs_api.redirect_url}#{r.ticket_id}", target: "_blank"
             - else
               = r.ticket_id
@@ -43,6 +48,15 @@
           %td#rating_text{width: "15%"}
             %span.has-tip.tip-down{"data-tooltip" => true, title: r.text_value}
               = r.text_value_short if r.text_value
+          %td#reviewed{width: "10%"}
+            - if r.review
+              %span.has-tip.tip-down{"data-tooltip" => true, title: r.review_text}
+                = link_to :true, edit_rating_review_path(r, r.review)
+            -else
+              = link_to :false, new_rating_review_path(r)
+          %td#ignored{wisaddth: "10%"}
+            = link_to r.ignored?.to_s, rating_reviews_path(r, :review => {:ignored_rating => !r.ignored?}), remote: true, method: :patch
+#ratings-pagination
   .row
     .small-7.columns.small-centered
       .text-center

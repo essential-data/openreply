@@ -88,7 +88,8 @@ filter_setup_variables = ->
   interval = $('a.button.interval.success').data('interval')
   time_filter = calculate_date_from_interval(interval)
   ratings_order = $('th a.created-at-sort').attr("val")
-  hash = {from: time_filter["from"], to: time_filter["to"], time_interval: interval, order: ratings_order}
+  page = $('#ratings-pagination .current').text().trim()
+  hash = {from: time_filter["from"], to: time_filter["to"], time_interval: interval, order: ratings_order, page: page}
 
   employee_id = if ($('#rating_employee').val() != "all") then hash['employee_id'] = $('#rating_employee').val()
   customer_id = if ($('#rating_customer').val() != "all") then hash['customer_id'] = $('#rating_customer').val()
@@ -128,7 +129,7 @@ select_init = () ->
   $("#rating_customer").val(urlParam('customer_id')) if urlParam('customer_id')
 
 # updates specific chart
-update_chart = (url) ->
+root.update_chart = (url) ->
   filter = filter_setup_variables()
   $.ajax({
     cache: false

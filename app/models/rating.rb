@@ -1,6 +1,7 @@
 class Rating < ActiveRecord::Base
   belongs_to :customer
   belongs_to :employee
+  has_one :review
 
   validates_presence_of :customer_id, :employee_id, :int_value
 
@@ -36,6 +37,13 @@ class Rating < ActiveRecord::Base
     self.ticket_number = Otrs::Ticket.find(ticket_id).tn
   end
 
+  def review_text
+    review.text
+  end
+
+  def ignored?
+    !!(review && review.ignored_rating)
+  end
 
   def text_value_short
     first = text_value.first(10)

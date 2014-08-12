@@ -3,9 +3,13 @@ Openreply::Application.routes.draw do
 
   root 'dashboard#wall'
 
-  resource :ratings, only: [:create ]
+  resources :ratings, only: [:create, :index] do
+    resources :reviews, only: [:new, :edit]
+    post 'reviews' => 'reviews#update'
+    resource :reviews, only: [:update]
+  end
 
-  get 'ratings', to: 'ratings#index'
+  # get 'ratings', to: 'ratings#index'
   get 'ratings/new', to: 'ratings#new_from_personal_details'
   get 'ratings/new/:ticket_id/:hash/:lang', to: 'ratings#new_validated_by_hash'
   get 'ratings/new/:ticket_id/:hash', to: 'ratings#new_validated_by_hash'

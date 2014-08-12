@@ -19,6 +19,10 @@
 //= require jquery.tablesorter
 //= require_tree .
 
+$(document).ready(function () {
+    $('#flash').fadeOut(3000)
+});
+
 $(function () {
     $(document).foundation({
         reveal: {
@@ -34,17 +38,11 @@ $(function () {
         // cancel      : true,
         path: '/assets/blue',
         width: 'auto',
-        hints: ['poor','fair','good','very good','excellent','extraordinary'],
-        click: function(score, evt) {
-          $('#rating_value').val(score);
-
-          // $.ajax({
-          //   url: '/ratings/',
-          //   type: 'PATCH',
-          //   data: { score: score }
-          // });
+        hints: ['poor', 'fair', 'good', 'very good', 'excellent', 'extraordinary'],
+        click: function (score, evt) {
+            $('#rating_value').val(score);
         }
-        });
+    });
 });
 $(function () {
     var startDate = new Date();

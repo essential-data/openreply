@@ -74,6 +74,8 @@ sk:
   rating:
     invalid: "Neplatná URL!"
     rated: "Už ste hodnotili!"
+    reviewed: "Posúdené"
+    ignored: "Ignorovať"
     new: "Nové hodnotenie"
     value: "Hodnotenie"
     text: "Text Vášho hodnotenia (voliteľný)"
@@ -83,6 +85,10 @@ sk:
     error_message: "Pri spracovaní hodnotenia došlo k chybe, skúste opakovať akciu neskôr."
     list: "Zoznam hodnotení"
     no_star: "Neoznačili ste žiadnu hviezdičku. Súhlasíte s týmto hodnotením?"
+    review:
+      success: "Úspešne uložené"
+      error: "Vyskytla sa chyba"
+      review: "Uložiť posudok"
 
   error:
     page_not_exist: "Neplatná URL!"
@@ -110,6 +116,8 @@ sk:
       created_at: 'Pridané'
       rating_text: 'Text hodnotenia'
       feedback: 'Spätná väzba'
+      ignored: 'Ignorované?'
+      reviewed: 'Posudok'
 
   helpers:
     page_entries_info:

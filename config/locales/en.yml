@@ -102,10 +102,14 @@ en:
       ticket_number: 'Ticket number'
       created_at: 'Created'
       feedback: 'Feedback'
+      ignored: 'Ignored?'
+      reviewed: 'Review'
 
   rating:
     invalid: "Requested URL is invalid!"
     rated: "The rating has been already submitted!"
+    reviewed: "Review this"
+    ignored: "Ignore this"
     new: "New rating"
     value: "Rating value"
     text: "Rating text (optional)"
@@ -115,6 +119,10 @@ en:
     error_message: "Error occured while processing your rating, try again later."
     list: "List of ratings"
     no_star: "You have not selected any star. Do you really want to rate this employee with no stars?"
+    review:
+      success: "Review has been saved"
+      error: "An error occurred and rating has not been saved"
+      save: "Save review"
 
   error:
     page_not_exist: "Requested URL is invalid!"

@@ -64,7 +64,6 @@
           <!-- END navigation -->
         </div>
       </div>
-      <%# render :partial => 'shared/alerts' %>
       <div class="row">
         <% params = {customer: "all", employee: "all", time_interval: "all"}.to_query %>
         <a href="<%= "#{root_path}?#{params}" %>">
@@ -89,6 +88,9 @@
           <% end %>
         </div>
       </div>
+        <div id="flash">
+            <%= render 'shared/messages' %>
+        </div>
       <div class="row">
         <div class="large-12 columns">
           <%= yield %>
