@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'spec_helper'
+require 'rails_helper'
 require 'vcr_setup'
 
 describe DashboardController, :vcr, :type => :controller do

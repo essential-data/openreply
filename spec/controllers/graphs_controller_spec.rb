@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 require 'vcr_setup'
 
 describe GraphsController, :vcr, :type => :controller do

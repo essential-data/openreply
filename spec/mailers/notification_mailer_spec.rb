@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe NotificationMailer, :type => :mailer do
   describe '#new_rating' do

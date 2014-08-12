@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 require 'vcr_setup'
 
 feature "Rating form", :vcr do
