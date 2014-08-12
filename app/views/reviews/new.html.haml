@@ -7,4 +7,4 @@
     = t "rating.reviewed"
 
   = form.text_area :text, rows: 9
-  = form.submit (t "rating.review.save"), :class => 'button small', id: "submit-button", onclick: "$('#reviewed').prop('checked', true);"
+  = form.submit (t "rating.review.save"), :class => 'button small', id: "submit-button", onsubmit: "$('#review_reviewed').prop('checked', true);"
