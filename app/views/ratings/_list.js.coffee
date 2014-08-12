@@ -3,5 +3,6 @@ if $("#ratings-list").length
   $('#ignored a').each ->
     $(this).bind("ajax:success", ->
       update_chart("/ratings")
+      $('#reload-graphs').fadeIn(1000)
     )
 

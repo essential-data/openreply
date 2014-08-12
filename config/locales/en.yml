@@ -50,6 +50,7 @@ en:
   thanks: "Thanks"
   warning: "Warning"
   loading: "Loading"
+  change: "Change"
 
   filter:
     all: "All"
@@ -66,6 +67,7 @@ en:
     custom_employee: "employee %{employee_name}"
     all_employees: "all employees"
 
+    reload: "Reload graphs"
     headlines:
       rating_using: 'Usage'
       rating_histogram: 'Histogram'

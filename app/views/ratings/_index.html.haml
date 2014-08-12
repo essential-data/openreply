@@ -55,7 +55,8 @@
             -else
               = link_to :false, new_rating_review_path(r)
           %td#ignored{wisaddth: "10%"}
-            = link_to r.ignored?.to_s, rating_reviews_path(r, :review => {:ignored_rating => !r.ignored?}), remote: true, method: :patch
+            %span.has-tip.tip-down{"data-tooltip" => true, title: t("change")}
+              = link_to r.ignored?.to_s, rating_reviews_path(r, :review => {:ignored_rating => !r.ignored?}), remote: true, method: :patch
 #ratings-pagination
   .row
     .small-7.columns.small-centered

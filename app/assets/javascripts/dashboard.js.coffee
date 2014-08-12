@@ -12,6 +12,7 @@ $(document).ready ->
   time_interval_change_bind()
   detailed_statistic_switcher()
   table_sort_bind()
+  reload_grapsh_bind()
 
   update_all_charts()
 
@@ -153,3 +154,12 @@ switch_statistics_button = (element) ->
       $(".statistics .data-filtered").show()
     else
       throw new Error "Unknown statistic button clicked"
+
+#bind reload graph button to reload and hide
+reload_grapsh_bind = ->
+  if $('#reload-graphs')
+    $('#reload-graphs').bind('submit', ->
+      update_all_charts()
+      $('#reload-graphs').fadeOut(1000)
+      false
+    )

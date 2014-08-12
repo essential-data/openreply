@@ -33,6 +33,7 @@ sk:
   thanks: "Ďakujeme"
   warning: "Upozornenie"
   loading: "Načítavám"
+  change: "Zmeniť"
 
   filter:
     all: "Všetci"
@@ -48,6 +49,9 @@ sk:
 
     custom_employee: "zamestnanca %{employee_name}"
     all_employees: 'všetkých zamestnancov'
+
+    reload: "Aktualizuj grafy"
+
     headlines:
       rating_using: 'Využitie hodnotiaceho systému'
       rating_histogram: 'Rozloženie hodnotení'

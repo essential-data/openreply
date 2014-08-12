@@ -32,5 +32,11 @@
       = t "wall.headlines.rating_timeline"
     #rating-timeline-chart
 .row.forth
+  .large-12.columns#reload-graphs{style: "display: none;"}
+    .large-7.columns.right.data
+      =button_to t("wall.reload"), "#", {class: 'button small'}
+
+
+.row.fifth
   / Table with ratings
   .large-12.columns#ratings-list

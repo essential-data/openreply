@@ -7,8 +7,9 @@ module Dashboard
     # @param [Symbol] interval - can be: :week, :month, :year, :all
     # @param [String] from
     # @param [String] to
-    def initialize customer, employee, interval, from, to
+    def initialize customer, employee, interval, from, to, without_ignored = true
       @ratings = Rating.order(:created_at)
+      @ratings = @ratings.joins("LEFT JOIN reviews r ON r.rating_id = ratings.id").where("r.ignored_rating IS NULL OR r.ignored_rating = false") if without_ignored
       @ratings = @ratings.filter_by_employee(employee) if employee && employee
       @ratings = @ratings.filter_by_customer(customer) if customer && customer
 

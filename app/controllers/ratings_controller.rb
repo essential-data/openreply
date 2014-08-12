@@ -7,7 +7,7 @@ class RatingsController < ApplicationController
   def index
     customer, employee, interval, from, to = Dashboard::Wall.process_parameters params
 
-    @filtered_ratings = Dashboard::FilteredRatings.new customer, employee, interval, from, to
+    @filtered_ratings = Dashboard::FilteredRatings.new customer, employee, interval, from, to, false
     @rating_list = Statistics::ListFeedback.new @filtered_ratings.ratings, params["order"], params["page"]
 
     respond_to do |format|
