@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140811092855) do
   end
 
   create_table "reviews", force: true do |t|
-    t.string   "text"
+    t.text     "text"
     t.integer  "rating_id"
     t.boolean  "ignored_rating"
     t.datetime "created_at"

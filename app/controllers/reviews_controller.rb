@@ -18,17 +18,15 @@ class ReviewsController < ApplicationController
       render_404
     else
       @review = rating.review || rating.build_review()
-      @review.text = params[:review][:text]
-      @review.ignored_rating = params[:review][:ignored_rating]
+      @review.assign_attributes(ignored_rating: params[:review][:ignored_rating], text: params[:review][:text]) if params[:review]
 
-      # binding.pry
       if @review.save
         respond_to do |format |
           format.js {flash.now[:notice] = (t "rating.review.success"); render "shared/messages"}
         end
       else
         respond_to do |format |
-          format.js {flash.now[:notice] = (t "rating.review.error"); render "shared/messages"}
+          format.js {flash.now[:error] = (t "rating.review.error"); render "shared/messages"}
         end
       end
     end
