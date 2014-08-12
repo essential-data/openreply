@@ -75,7 +75,7 @@ sk:
     invalid: "Neplatná URL!"
     rated: "Už ste hodnotili!"
     reviewed: "Posúdené"
-    ignored: "Ignorovať"
+    ignored: "Ignorované"
     new: "Nové hodnotenie"
     value: "Hodnotenie"
     text: "Text Vášho hodnotenia (voliteľný)"
@@ -111,6 +111,7 @@ sk:
     ratings:
       rating: 'Hodnotenie'
       employee: 'Zamestnanec'
+      customer: 'Zákazník'
       ip: IP
       ticket_number: 'Číslo ticketu'
       created_at: 'Pridané'

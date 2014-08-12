@@ -98,6 +98,7 @@ en:
     ratings:
       rating: 'Rating'
       employee: 'Employee'
+      customer: 'Customer'
       ip: 'IP'
       ticket_number: 'Ticket number'
       created_at: 'Created'
@@ -108,8 +109,8 @@ en:
   rating:
     invalid: "Requested URL is invalid!"
     rated: "The rating has been already submitted!"
-    reviewed: "Review this"
-    ignored: "Ignore this"
+    reviewed: "Reviewed"
+    ignored: "Ignored"
     new: "New rating"
     value: "Rating value"
     text: "Rating text (optional)"

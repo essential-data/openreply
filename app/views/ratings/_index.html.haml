@@ -10,7 +10,7 @@
       %th
         = t "tables.ratings.employee"
       %th
-        = t "tables.ratings.ip"
+        = t "tables.ratings.customer"
       %th
         = t "tables.ratings.ticket_number"
       %th
@@ -33,7 +33,7 @@
 
           %td{width: "14%"}
             = link_to r.employee_name, dashboard_wall_path + "?employee_id=#{r.employee_id}"
-          %td{width: "25%"}
+          %td{width: "20%"}
             = link_to r.customer_name, dashboard_wall_path + "?customer_id=#{r.customer_id}"
             / %br
             %span.ip
