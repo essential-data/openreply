@@ -37,8 +37,8 @@ class ReviewsController < ApplicationController
     @review = Review.find_by_id(params[:id])
     if @review
       respond_to do |format|
-        format.html {  render :new }
-        format.js {  render :new }
+        format.html { render :new }
+        format.js { render :new }
       end
     else
       render_404

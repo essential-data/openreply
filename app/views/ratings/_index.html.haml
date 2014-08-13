@@ -54,12 +54,12 @@
           %td#reviewed{width: "10%"}
             - if r.review
               %span.has-tip.tip-down{"data-tooltip" => true, title: r.review_text}
-                = link_to :true, edit_rating_review_path(r, r.review), remote: true
+                = link_to t("yes"), edit_rating_review_path(r, r.review), remote: true
             -else
-              = link_to :false, new_rating_review_path(r), remote: true
+              = link_to t("no"), new_rating_review_path(r), remote: true
           %td#ignored{wisaddth: "10%"}
             %span.has-tip.tip-down{"data-tooltip" => true, title: t("change")}
-              = link_to r.ignored?.to_s, rating_reviews_path(r, :review => {:ignored_rating => !r.ignored?}), remote: true, method: :patch
+              = link_to r.ignored? ? t(:yes) : t(:no), rating_reviews_path(r, :review => {:ignored_rating => !r.ignored?}), remote: true, method: :patch
 #ratings-pagination
   .row
     .small-7.columns.small-centered

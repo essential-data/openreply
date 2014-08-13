@@ -35,6 +35,8 @@ sk:
   loading: "Načítavám"
   change: "Zmeniť"
   cancel: "cancel"
+  "yes": "Áno"
+  "no": "Nie"
 
   filter:
     all: "Všetci"

@@ -16,10 +16,16 @@ describe ReviewsController, :vcr, :type => :controller do
       it "successfully responds to request" do
         get :new, rating_id: rating.id
         expect(response).to render_template :new
+        xhr :get, :new, rating_id: rating.id
+        expect(response).to render_template :new
       end
 
       it "assigns parameters" do
         get :new, rating_id: rating.id
+        expect(assigns(:review)).to be_an_instance_of Review
+        expect(assigns(:review).rating).to eq rating
+        expect(assigns(:review).id).to be_nil
+        xhr :get ,:new, rating_id: rating.id
         expect(assigns(:review)).to be_an_instance_of Review
         expect(assigns(:review).rating).to eq rating
         expect(assigns(:review).id).to be_nil
@@ -31,6 +37,8 @@ describe ReviewsController, :vcr, :type => :controller do
       it 'wrong rating id' do
         get :new, rating_id: -1
         assert_response 404
+        xhr :get, :new, rating_id: -1
+        assert_response 404
       end
     end
   end
@@ -41,10 +49,16 @@ describe ReviewsController, :vcr, :type => :controller do
         # get edit_rating_review_path(rating, review)
         get :edit, rating_id: rating, id: review
         expect(response).to render_template :new
+        xhr :get, :edit, rating_id: rating, id: review
+        expect(response).to render_template :new
       end
 
       it "assigns parameters" do
         get :edit, rating_id: rating, id: review
+        expect(assigns(:review)).to be_an_instance_of Review
+        expect(assigns(:review).rating).to eq rating
+        expect(assigns(:review).id).to eq review.id
+        xhr :get,:edit, rating_id: rating, id: review
         expect(assigns(:review)).to be_an_instance_of Review
         expect(assigns(:review).rating).to eq rating
         expect(assigns(:review).id).to eq review.id
@@ -54,6 +68,8 @@ describe ReviewsController, :vcr, :type => :controller do
     context 'invalid parameters' do
       it 'wrong review id' do
         get :edit, rating_id: rating, id: -1
+        assert_response 404
+        xhr :get, :edit, rating_id: rating, id: -1
         assert_response 404
       end
     end

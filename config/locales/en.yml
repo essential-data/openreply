@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  "yes": "Yes"
+  "no": "No"
   hello: "Hello world"
   logedin: "Logged in as "
   logout: "Logout"

@@ -28,4 +28,14 @@
   <a href="#" class="button tiny" onclick="$('#submit-button').submit()">Yes</a>
 </div>
 
+<div id="no_star_selected" class="reveal-modal tiny new-rating-modals" data-reveal>
+  <h2><%= t :warning %></h2>
+  <p class="lead"><%= t :no_star, scope: [:rating] %></p>
+  <a class="close-reveal-modal">&#215;</a>
+  <a href="#" class="button tiny reveal-close" onclick="$('.close-reveal-modal').click()" >No</a>
+  <a href="#" class="button tiny" onclick="$('#submit-button').submit()">Yes</a>
+</div>
+
+
+
 
