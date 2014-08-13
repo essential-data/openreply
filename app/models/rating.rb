@@ -45,6 +45,10 @@ class Rating < ActiveRecord::Base
     !!(review && review.ignored_rating)
   end
 
+  def created_at_text
+    created_at.strftime("%d.%m.%Y")
+  end
+
   def text_value_short
     first = text_value.first(10)
     if text_value.length > 10

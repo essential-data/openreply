@@ -68,7 +68,6 @@ $header-font-family: Avenir, Arial, sans-serif;
 // $primary-color: #008CBA;
 $primary-color: #797F81;
 
-
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -1125,14 +1124,19 @@ h2, h1 {
 /** START Form for new rating **/
 /*
 $rating-form-main-color:
+
 <%= Settings.color %>
+
 ;
 $main-color:
+
 <%= Settings.color %>
+
 ;
 */
 $rating-form-main-color: #f14e3c;
 $main-color: #f14e3c;
+$blue-color: #006dcc;
 
 .rating-form h2,
 .rating-form h3,
@@ -1201,6 +1205,19 @@ $main-color: #f14e3c;
 .rating-form #submit-button:focus,
 .rating-form #submit-button:hover {
     background-color: darken($rating-form-main-color, 10%);
+}
+
+.review-rating #submit-button:focus,
+.review-rating #submit-button:hover {
+    background-color: darken($blue-color, 10%);
+}
+
+.blue-theme .button {
+    background-color: $blue-color;
+}
+
+.blue-theme a {
+    color: $blue-color;
 }
 
 .rating-form #main-row {
@@ -1520,4 +1537,22 @@ button.tiny, .button.tiny {
     position: fixed;
     z-index: 100;
     top: 0px;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+p{
+    margin-bottom: 3px;
+}
+
+textarea{
+    resize: none;
+}
+
+.blue-font {color: $blue-color !important;}
+
+.row.border-bottom {
+    border-bottom: 1px solid #d3d3d3;
 }

@@ -12,7 +12,10 @@
       %th
         = t "tables.ratings.customer"
       %th
-        = t "tables.ratings.ticket_number"
+        - if Otrs.using_otrs?
+          = t "tables.ratings.ticket_number"
+        - else
+          = t "tables.ratings.ticket_id"
       %th
         %a.created-at-sort{val: (params[:order] if params) || "DESC"}
           = t "tables.ratings.created_at"
@@ -39,8 +42,8 @@
             %span.ip
               = "(#{r.client_ip})"
           %td{width: "20"}
-            - if Otrs.using_otrs? && r.ticket_number
-              = link_to r.ticket_number, "#{Settings.otrs_api.redirect_url}#{r.ticket_id}", target: "_blank"
+            - if Otrs.using_otrs?
+              = link_to r.ticket_number || "", "#{Settings.otrs_api.redirect_url}#{r.ticket_id}", target: "_blank"
             - else
               = r.ticket_id
           %td{width: "20%"}
@@ -51,9 +54,9 @@
           %td#reviewed{width: "10%"}
             - if r.review
               %span.has-tip.tip-down{"data-tooltip" => true, title: r.review_text}
-                = link_to :true, edit_rating_review_path(r, r.review)
+                = link_to :true, edit_rating_review_path(r, r.review), remote: true
             -else
-              = link_to :false, new_rating_review_path(r)
+              = link_to :false, new_rating_review_path(r), remote: true
           %td#ignored{wisaddth: "10%"}
             %span.has-tip.tip-down{"data-tooltip" => true, title: t("change")}
               = link_to r.ignored?.to_s, rating_reviews_path(r, :review => {:ignored_rating => !r.ignored?}), remote: true, method: :patch

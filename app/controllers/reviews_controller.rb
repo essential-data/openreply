@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
       @review = rating.review || rating.build_review()
       respond_to do |format|
         format.html
+        format.js
       end
     end
   end
@@ -37,6 +38,7 @@ class ReviewsController < ApplicationController
     if @review
       respond_to do |format|
         format.html {  render :new }
+        format.js {  render :new }
       end
     else
       render_404

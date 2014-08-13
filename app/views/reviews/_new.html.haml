@@ -1,0 +1,45 @@
+.reveal-modal.tiny.review-rating.blue-theme{"data-reveal" => true}
+  .small-12.columns
+    = form_for @review, url: rating_reviews_path, remote: true do |form|
+      %h4
+        =t("rating.review.feedback")
+      .small-9.columns.left
+        .row.first.border-bottom
+          .small-12.columns.left
+            %h5.blue-font
+              =@review.rating.employee_name
+        .row.first.border-bottom
+          .small-5.columns.left
+            %p
+              ="##{@review.rating.ticket_number}" if @review.rating.ticket_number
+          .small-5.columns.right
+            %p
+              =@review.rating.created_at_text
+      .small-3.columns.right
+        = render partial: 'shared/circle', locals: {color: Openreply::Color.color(@review.rating.int_value), size: "", style:"align:right;", white_text: @review.rating.int_value, html_class: "review-circle", text: ""}
+      .row.second.border-bottom
+        .small-12.columns
+          %p
+            =@review.rating.text_value
+      .row.second
+        =form.label :text do
+          %p
+            %b
+              =t( "rating.review.review").upcase
+          =form.text_area :text, rows: 6
+      .row.second.border-bottom
+        .small-6.columns
+          =form.label :ignored_rating do
+            = form.check_box :ignored_rating
+            = t "rating.review.ignored"
+        .small-4.columns.left
+          =form.label :reviewed? do
+            = form.check_box :reviewed?
+            = t "rating.review.reviewed"
+      .row.third.text-right
+        = form.submit (t "rating.review.save").upcase, id: "submit-button", class: 'button small', id: "submit-button", onclick: "$('.close-reveal-modal').click();update_chart('/ratings');$('#reload-graphs').fadeIn(1000);"
+        or
+        = link_to t("cancel"), '#', onclick: "$('.close-reveal-modal').click();return false;", class: "underline"
+
+  <a class="close-reveal-modal">&#215;</a>
+

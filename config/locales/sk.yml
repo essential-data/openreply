@@ -34,6 +34,7 @@ sk:
   warning: "Upozornenie"
   loading: "Načítavám"
   change: "Zmeniť"
+  cancel: "cancel"
 
   filter:
     all: "Všetci"
@@ -78,21 +79,23 @@ sk:
   rating:
     invalid: "Neplatná URL!"
     rated: "Už ste hodnotili!"
-    reviewed: "Posúdené"
-    ignored: "Ignorované"
-    new: "Nové hodnotenie"
     value: "Hodnotenie"
     text: "Text Vášho hodnotenia (voliteľný)"
     save: "Odošli hodnotenie"
     thanks_message: "Vaše hodnotenie bolo odoslané"
     error: "Chyba"
+    new: "Nové hodnotenie"
     error_message: "Pri spracovaní hodnotenia došlo k chybe, skúste opakovať akciu neskôr."
     list: "Zoznam hodnotení"
     no_star: "Neoznačili ste žiadnu hviezdičku. Súhlasíte s týmto hodnotením?"
     review:
+      review: "Posudok"
+      reviewed: "Posúdené"
+      ignored: "Ignorované v štatistikách"
       success: "Úspešne uložené"
       error: "Vyskytla sa chyba"
-      review: "Uložiť posudok"
+      save: "Uložiť"
+      feedback: "Spätná väzba hodnotenia"
 
   error:
     page_not_exist: "Neplatná URL!"
@@ -118,6 +121,7 @@ sk:
       customer: 'Zákazník'
       ip: IP
       ticket_number: 'Číslo ticketu'
+      ticket_id: 'ID ticketu'
       created_at: 'Pridané'
       rating_text: 'Text hodnotenia'
       feedback: 'Spätná väzba'

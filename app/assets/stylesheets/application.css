@@ -10,12 +10,9 @@
  *
  *= require_self
  * require jquery-star-rating
- * require_tree .
- *= require foundation_and_overrides.scss.erb
+ *= require_tree .
  *= require foundation-datepicker
  *= require font-awesome
- *= require ratings
- *= require tables
 
  */
 

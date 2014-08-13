@@ -51,6 +51,7 @@ en:
   warning: "Warning"
   loading: "Loading"
   change: "Change"
+  cancel: "cancel"
 
   filter:
     all: "All"
@@ -103,6 +104,7 @@ en:
       customer: 'Customer'
       ip: 'IP'
       ticket_number: 'Ticket number'
+      ticket_id: 'Ticket id'
       created_at: 'Created'
       feedback: 'Feedback'
       ignored: 'Ignored?'
@@ -111,8 +113,6 @@ en:
   rating:
     invalid: "Requested URL is invalid!"
     rated: "The rating has been already submitted!"
-    reviewed: "Reviewed"
-    ignored: "Ignored"
     new: "New rating"
     value: "Rating value"
     text: "Rating text (optional)"
@@ -123,9 +123,13 @@ en:
     list: "List of ratings"
     no_star: "You have not selected any star. Do you really want to rate this employee with no stars?"
     review:
+      review: "Review"
+      reviewed: "Reviewed"
+      ignored: "Ignored in stats"
       success: "Review has been saved"
       error: "An error occurred and rating has not been saved"
-      save: "Save review"
+      save: "Save"
+      feedback: "Review feedback"
 
   error:
     page_not_exist: "Requested URL is invalid!"
