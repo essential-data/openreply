@@ -76,6 +76,7 @@ class RatingsController < ApplicationController
     end
   end
 
+  # get all customers that rated an employee
   def related_customers
     customer, employee, interval, from, to = Dashboard::Wall.process_parameters params
     @filter = Dashboard::Filter.new(customer, employee, interval, from, to)
@@ -87,6 +88,7 @@ class RatingsController < ApplicationController
 
   end
 
+  # get all employees that have been rated by a customer
   def related_employees
     customer, employee, interval, from, to = Dashboard::Wall.process_parameters params
     @filter = Dashboard::Filter.new(customer, employee, interval, from, to)
