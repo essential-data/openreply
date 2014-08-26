@@ -46,7 +46,7 @@ class Rating < ActiveRecord::Base
   end
 
   def created_at_text
-    created_at.strftime("%d.%m.%Y")
+    created_at.strftime("%d. %m. %Y")
   end
 
   def text_value_short

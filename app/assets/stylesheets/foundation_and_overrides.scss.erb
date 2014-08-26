@@ -1125,18 +1125,26 @@ h2, h1 {
 /*
 $rating-form-main-color:
 
+
+
 <%= Settings.color %>
+
+
 
 ;
 $main-color:
 
+
+
 <%= Settings.color %>
+
+
 
 ;
 */
 $rating-form-main-color: #f14e3c;
 $main-color: #f14e3c;
-$blue-color: #006dcc;
+$blue-color: #2e90c9;
 
 .rating-form h2,
 .rating-form h3,
@@ -1265,7 +1273,17 @@ $blue-color: #006dcc;
     font-weight: bold;
     margin-right: 45px;
     margin-bottom: 25px;
+}
 
+.circle.outer.medium {
+    width: 60px;
+    height: 60px;
+    font-size: 0.6rem;
+    margin: 0px;
+}
+
+.circle.outer.medium .circle.white{
+    font-size: 24px;
 }
 
 .circle.outer.small {
@@ -1275,10 +1293,12 @@ $blue-color: #006dcc;
     margin: 0px;
 }
 
-.circle.middle {
+.middle {
     display: table-cell;
     vertical-align: middle;
+    height: 100%;
 }
+
 
 .circle.inner {
     margin-left: auto;
@@ -1543,15 +1563,17 @@ button.tiny, .button.tiny {
     text-decoration: underline !important;
 }
 
-p{
+p {
     margin-bottom: 3px;
 }
 
-textarea{
+textarea {
     resize: none;
 }
 
-.blue-font {color: $blue-color !important;}
+.blue-font {
+    color: $blue-color !important;
+}
 
 .row.border-bottom {
     border-bottom: 1px solid #d3d3d3;

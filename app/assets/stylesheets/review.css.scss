@@ -1,0 +1,99 @@
+.reveal-modal.review-rating {
+  width: 420px;
+}
+
+.review-rating, .review-rating label {
+  color: #000000;
+}
+
+.review-rating textarea {
+  background-color: #fafafa;
+}
+
+.review-rating h1 {
+  margin-top: 0px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.review-rating .row .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.review-rating .columns {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.review-rating .first {
+  padding-left: 3px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+.review-rating .first .first {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.review-rating .second {
+  padding-left: 8px;
+  margin-right: 15px;
+  padding-bottom: 10px;
+  padding-top: 0px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.review-rating .third {
+  line-height: 40px;
+  margin-bottom: 5px;
+}
+
+.review-rating .fourth {
+  padding-left: 10px;
+}
+
+.review-rating .fifth {
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+
+.review-rating .font-smaller {
+  font-size: 13px;
+}
+
+.review-rating .circle.outer {
+  float: right;
+  margin-top: 20px;
+}
+
+.review-rating .button{
+  font-size: 18px;
+  font-weight: bold !important;
+  padding-top: 8px;
+  padding-left: 11px;
+  padding-right: 11px;
+  margin-right: 10px;
+  padding-bottom: 8px;
+}
+
+
+.review-rating input[type=checkbox] {
+  background: #aaaaaaz;
+
+}
+.review-rating .close-reveal-modal{
+  background-image:  url("close-button.png");
+  min-width: 18px;
+  min-height: 18px;
+  top: 0px;
+  right: 0px;
+
+
+
+}
